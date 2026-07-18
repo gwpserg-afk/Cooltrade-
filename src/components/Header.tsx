@@ -6,7 +6,7 @@ import { whatsappLink } from '@/config/brand'
 import { AVAILABLE_LANGUAGES } from '@/i18n'
 import { useTheme } from '@/hooks/useTheme'
 import { Logo } from './Logo'
-import { WhatsAppIcon, MenuIcon, CloseIcon } from './Icons'
+import { WhatsAppIcon, MenuIcon, CloseIcon, SunIcon, MoonIcon } from './Icons'
 
 function LangToggle({ full = false }: { full?: boolean }) {
   const { i18n } = useTranslation()
@@ -44,7 +44,7 @@ function ThemeToggle() {
       className="flex h-[38px] w-[38px] items-center justify-center rounded-lg border text-ink transition-colors hover:border-ink"
       style={{ borderColor: 'rgb(var(--line))' }}
     >
-      {theme === 'dark' ? '☀' : '☾'}
+      {theme === 'dark' ? <SunIcon className="h-[18px] w-[18px]" /> : <MoonIcon className="h-[18px] w-[18px]" />}
     </button>
   )
 }
@@ -113,14 +113,26 @@ export function Header() {
             </a>
           </div>
 
-          <button
-            onClick={() => setOpen(true)}
-            className="flex h-[38px] w-[38px] items-center justify-center rounded-lg border text-ink lg:hidden"
-            style={{ borderColor: 'rgb(var(--line))' }}
-            aria-label={t('common.openMenu')}
-          >
-            <MenuIcon className="h-[22px] w-[22px]" />
-          </button>
+          <div className="flex items-center gap-2 lg:hidden">
+            <ThemeToggle />
+            <a
+              href={whatsappLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-[38px] w-[38px] items-center justify-center rounded-lg bg-wa text-white"
+              aria-label={t('common.whatsapp')}
+            >
+              <WhatsAppIcon className="h-[18px] w-[18px]" />
+            </a>
+            <button
+              onClick={() => setOpen(true)}
+              className="flex h-[38px] w-[38px] items-center justify-center rounded-lg border text-ink"
+              style={{ borderColor: 'rgb(var(--line))' }}
+              aria-label={t('common.openMenu')}
+            >
+              <MenuIcon className="h-[22px] w-[22px]" />
+            </button>
+          </div>
         </div>
       </header>
 

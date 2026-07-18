@@ -63,7 +63,7 @@ export function AdminDashboard({
       </div>
 
       <div className="mt-8 rounded-2xl border border-blue/30 bg-blue/10 p-5 text-sm text-ink-soft">
-        <p className="font-semibold text-ink">💡 Comment ça marche</p>
+        <p className="font-semibold text-ink">Comment ça marche</p>
         <p className="mt-2 leading-relaxed">
           Les modifications du catalogue sont enregistrées dans ce navigateur. Pour les rendre
           permanentes sur le site en ligne, utilisez le bouton <strong>« Exporter le catalogue »</strong>{' '}
@@ -92,9 +92,10 @@ function StatusRow({
     : neutral
       ? 'border-line bg-card text-ink-soft'
       : 'border-rust/30 bg-rust/10 text-rust'
+  const dot = ok ? 'bg-blue' : neutral ? 'bg-ink-faint' : 'bg-rust'
   return (
     <div className={`flex items-start gap-3 rounded-xl border p-4 text-sm ${tone}`}>
-      <span className="mt-0.5">{ok ? '✅' : neutral ? 'ℹ️' : '⚠️'}</span>
+      <span className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${dot}`} />
       <span>{ok ? okText : warnText}</span>
     </div>
   )
