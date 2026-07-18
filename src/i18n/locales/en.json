@@ -56,8 +56,8 @@
   },
   "home": {
     "h": {
-      "heroLead": "The local partner of the",
-      "heroAccent": "Senegalese refrigeration technician",
+      "heroLead": "Dakar's refrigerant gas",
+      "heroAccent": "specialist",
       "catLead": "Everything to install, repair and",
       "catAccent": "maintain",
       "valLead": "A supplier who speaks the trade — and",
@@ -71,12 +71,13 @@
       "delivery": "Delivery in Dakar",
       "families": "Product families",
       "refs": "References in stock",
-      "credit": "Trade credit for pros"
+      "credit": "Trade credit for pros",
+      "daySuffix": " d"
     },
     "hero": {
-      "eyebrow": "Import & distribution · Refrigeration & AC · Dakar",
-      "title": "The Senegalese refrigeration technician's local partner",
-      "subtitle": "Refrigerant gases, spare parts and professional tools — in stock in Dakar, delivered within 24h. One number to call, people who know the trade.",
+      "eyebrow": "Refrigerant gases · Refrigeration & AC · Dakar",
+      "title": "Dakar's refrigerant gas specialist",
+      "subtitle": "R410A, R32, R134a and R22 — for air conditioning, refrigeration and reefer containers. In stock in Dakar, delivered in 24h, with the matching parts and tools.",
       "ctaPrimary": "Chat on WhatsApp",
       "ctaSecondary": "Request a quote",
       "metaStock": "In stock today",

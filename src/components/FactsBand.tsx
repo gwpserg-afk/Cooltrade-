@@ -3,9 +3,8 @@ import { useProducts } from '@/hooks/useProducts'
 import { useCountUp } from '@/hooks/useCountUp'
 
 /**
- * Animated facts band — count-up figures on a fixed-dark ground. Adds motion
- * and a strong visual break in the page rhythm. All figures are plain facts
- * (no revenue / projections).
+ * Animated facts band — count-up figures on the warm card ground. All figures
+ * are plain facts (no revenue / projections).
  */
 function Stat({
   value,
@@ -23,13 +22,12 @@ function Stat({
     <div className="text-center sm:text-left">
       <div
         ref={ref}
-        className="font-serif text-[clamp(2.6rem,6vw,4.2rem)] font-semibold leading-none tabular-nums"
-        style={{ color: '#F3EEE4' }}
+        className="font-serif text-[clamp(2.6rem,6vw,4.2rem)] font-semibold leading-none tabular-nums text-ink"
       >
         {n}
-        {suffix && <span style={{ color: '#8B99FF' }}>{suffix}</span>}
+        {suffix && <span className="text-blue">{suffix}</span>}
       </div>
-      <div className="mt-2 font-mono text-[0.7rem] uppercase tracking-[0.12em]" style={{ color: 'rgba(243,238,228,0.6)' }}>
+      <div className="mt-2 font-mono text-[0.7rem] uppercase tracking-[0.12em] text-ink-faint">
         {label}
       </div>
     </div>
@@ -41,12 +39,12 @@ export function FactsBand() {
   const products = useProducts()
 
   return (
-    <section style={{ background: '#17120B' }}>
+    <section className="border-y border-line bg-card-2">
       <div className="container-page grid grid-cols-2 gap-x-6 gap-y-10 py-14 sm:py-16 lg:grid-cols-4 lg:py-20">
         <Stat value={24} suffix="h" label={t('home.facts.delivery')} delay={0} />
         <Stat value={4} label={t('home.facts.families')} delay={150} />
         <Stat value={products.length} suffix="+" label={t('home.facts.refs')} delay={300} />
-        <Stat value={30} suffix=" j" label={t('home.facts.credit')} delay={450} />
+        <Stat value={30} suffix={t('home.facts.daySuffix')} label={t('home.facts.credit')} delay={450} />
       </div>
     </section>
   )

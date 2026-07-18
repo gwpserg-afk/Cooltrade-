@@ -1,69 +1,95 @@
 /**
  * Custom hero illustration — a refrigeration "spec bench": three colour-coded
- * cylinders and a pressure gauge, drawn as clean line art in the brand palette.
- * On-subject and professional (no stock photo, no emoji). Structured so a real
- * product photo can replace it later by swapping this one component.
- *
- * Theme-aware colours use Tailwind fill-/stroke- utilities (which emit the CSS
- * token vars); cylinder caps + accents use fixed hex that read on both themes.
+ * refrigerant cylinders (valve handwheel + labelled collar, like the real
+ * bottles) and a pressure gauge. Clean line art in the brand palette — no stock
+ * photo, no emoji. Swap this one component for a product photo later.
  */
+
+function Cylinder({
+  x,
+  top,
+  w,
+  h,
+  color,
+  label,
+  fontSize = 13,
+}: {
+  x: number
+  top: number
+  w: number
+  h: number
+  color: string
+  label: string
+  fontSize?: number
+}) {
+  const cx = x + w / 2
+  return (
+    <g>
+      {/* body */}
+      <rect x={x} y={top} width={w} height={h} rx={w * 0.42} className="fill-card stroke-ink" strokeWidth="2.5" />
+      {/* valve neck */}
+      <rect x={cx - 5} y={top - 16} width="10" height="18" rx="3" className="fill-card stroke-ink" strokeWidth="2.2" />
+      {/* handwheel */}
+      <circle cx={cx} cy={top - 18} r="7" className="fill-card stroke-ink" strokeWidth="2.2" />
+      <path d={`M${cx - 7} ${top - 18}h14M${cx} ${top - 25}v14`} className="stroke-ink" strokeWidth="1.8" strokeLinecap="round" />
+      {/* colour collar / label */}
+      <rect x={x + 4} y={top + 20} width={w - 8} height="26" rx="6" fill={color} />
+      <text
+        x={cx}
+        y={top + 38}
+        textAnchor="middle"
+        fontFamily="'IBM Plex Mono',monospace"
+        fontSize={fontSize}
+        fontWeight="600"
+        fill="#0b0e1f"
+        fillOpacity="0.85"
+      >
+        {label}
+      </text>
+      {/* level ticks */}
+      <path d={`M${x + 14} ${top + h - 60}h${w - 28}M${x + 14} ${top + h - 34}h${w - 28}`} className="stroke-ink" strokeOpacity="0.28" strokeWidth="2" strokeLinecap="round" />
+    </g>
+  )
+}
+
 export function HeroArt({ className = '' }: { className?: string }) {
   return (
-    <svg viewBox="0 0 520 460" className={className} fill="none" aria-hidden="true" role="img">
+    <svg viewBox="0 0 520 470" className={className} fill="none" aria-hidden="true" role="img">
       {/* Panel */}
-      <rect x="14" y="20" width="492" height="420" rx="24" className="fill-card-2 stroke-line" strokeWidth="1" />
+      <rect x="14" y="20" width="492" height="430" rx="24" className="fill-card-2 stroke-line" strokeWidth="1" />
       {/* faint blueprint grid */}
       <g className="stroke-line" strokeOpacity="0.6">
-        <path d="M14 120h492M14 220h492M14 320h492" />
-        <path d="M140 20v420M270 20v420M400 20v420" />
+        <path d="M14 130h492M14 240h492M14 350h492" />
+        <path d="M140 20v430M270 20v430M400 20v430" />
       </g>
 
       {/* Bench line */}
-      <path d="M52 372h416" className="stroke-ink" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M52 392h416" className="stroke-ink" strokeWidth="2.5" strokeLinecap="round" />
 
-      {/* Cylinder 1 — tall (R32 / steel) */}
-      <g>
-        <rect x="86" y="150" width="78" height="222" rx="30" className="fill-card stroke-ink" strokeWidth="2.5" />
-        <rect x="112" y="120" width="26" height="34" rx="8" fill="#7E9CB6" />
-        <path d="M104 210h42M104 250h42M104 290h42" className="stroke-ink" strokeOpacity="0.32" strokeWidth="2" strokeLinecap="round" />
-        <text x="125" y="345" textAnchor="middle" fontFamily="'IBM Plex Mono',monospace" fontSize="15" fontWeight="600" className="fill-ink">R32</text>
-      </g>
-
-      {/* Cylinder 2 — medium (R410A / rose) */}
-      <g>
-        <rect x="200" y="196" width="70" height="176" rx="28" className="fill-card stroke-ink" strokeWidth="2.5" />
-        <rect x="223" y="168" width="24" height="32" rx="8" fill="#C67DA0" />
-        <path d="M216 244h38M216 282h38" className="stroke-ink" strokeOpacity="0.32" strokeWidth="2" strokeLinecap="round" />
-        <text x="235" y="345" textAnchor="middle" fontFamily="'IBM Plex Mono',monospace" fontSize="13" fontWeight="600" className="fill-ink">R410A</text>
-      </g>
-
-      {/* Cylinder 3 — short (R134a / blue) */}
-      <g>
-        <rect x="306" y="240" width="62" height="132" rx="26" className="fill-card stroke-ink" strokeWidth="2.5" />
-        <rect x="326" y="214" width="22" height="30" rx="7" fill="#5C9DD0" />
-        <path d="M320 288h34" className="stroke-ink" strokeOpacity="0.32" strokeWidth="2" strokeLinecap="round" />
-        <text x="337" y="345" textAnchor="middle" fontFamily="'IBM Plex Mono',monospace" fontSize="12" fontWeight="600" className="fill-ink">R134a</text>
-      </g>
+      {/* Cylinders */}
+      <Cylinder x={90} top={168} w={78} h={224} color="#7E9CB6" label="R32" fontSize={14} />
+      <Cylinder x={202} top={214} w={70} h={178} color="#C67DA0" label="R410A" fontSize={12} />
+      <Cylinder x={306} top={258} w={62} h={134} color="#5C9DD0" label="R134a" fontSize={11} />
 
       {/* Pressure gauge — cobalt accent */}
       <g>
-        <circle cx="416" cy="150" r="58" className="fill-card stroke-ink" strokeWidth="2.5" />
-        <circle cx="416" cy="150" r="47" fill="none" className="stroke-line" />
+        <circle cx="418" cy="150" r="56" className="fill-card stroke-ink" strokeWidth="2.5" />
+        <circle cx="418" cy="150" r="45" fill="none" className="stroke-line" />
         <g className="stroke-ink" strokeWidth="2" strokeLinecap="round">
-          <path d="M416 108v9M458 150h-9M416 192v-9M374 150h9" />
-          <path d="M386 120l6 6M446 120l-6 6M446 180l-6-6M386 180l6-6" strokeOpacity="0.4" />
+          <path d="M418 110v8M456 150h-8M418 190v-8M380 150h8" />
+          <path d="M390 122l6 6M446 122l-6 6M446 178l-6-6M390 178l6-6" strokeOpacity="0.4" />
         </g>
-        <g className="motion-safe:animate-gauge" style={{ transformOrigin: '416px 150px' }}>
-          <path d="M416 150l24-20" stroke="#2743E6" strokeWidth="3.5" strokeLinecap="round" />
+        <g className="motion-safe:animate-gauge" style={{ transformOrigin: '418px 150px' }}>
+          <path d="M418 150l22-19" stroke="#2743E6" strokeWidth="3.5" strokeLinecap="round" />
         </g>
-        <circle cx="416" cy="150" r="6" className="fill-ink" />
-        <text x="416" y="232" textAnchor="middle" fontFamily="'IBM Plex Mono',monospace" fontSize="11" className="fill-ink-faint" letterSpacing="1">PRESSION · BAR</text>
+        <circle cx="418" cy="150" r="6" className="fill-ink" />
+        <text x="418" y="228" textAnchor="middle" fontFamily="'IBM Plex Mono',monospace" fontSize="11" className="fill-ink-faint" letterSpacing="1">PRESSION · BAR</text>
       </g>
 
-      {/* Snow accents */}
+      {/* Snow / cold accents */}
       <g stroke="#2743E6" strokeWidth="2" strokeLinecap="round" opacity="0.5">
-        <path d="M470 300v18M461 309h18M464 303l12 12M476 303l-12 12" />
-        <path d="M62 96v12M56 102h12M58 98l8 8M66 98l-8 8" />
+        <path d="M472 320v18M463 329h18M466 323l12 12M478 323l-12 12" />
+        <path d="M60 110v12M54 116h12M56 112l8 8M64 112l-8 8" />
       </g>
     </svg>
   )

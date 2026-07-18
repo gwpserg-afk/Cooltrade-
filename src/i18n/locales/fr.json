@@ -56,8 +56,8 @@
   },
   "home": {
     "h": {
-      "heroLead": "Le partenaire de proximité du",
-      "heroAccent": "frigoriste sénégalais",
+      "heroLead": "Le spécialiste du gaz réfrigérant à",
+      "heroAccent": "Dakar",
       "catLead": "Tout pour installer, réparer et",
       "catAccent": "entretenir",
       "valLead": "Un fournisseur qui parle métier — et qui",
@@ -71,12 +71,13 @@
       "delivery": "Livraison dans Dakar",
       "families": "Familles au catalogue",
       "refs": "Références en stock",
-      "credit": "Crédit fournisseur pro"
+      "credit": "Crédit fournisseur pro",
+      "daySuffix": " j"
     },
     "hero": {
-      "eyebrow": "Import-distribution · Froid & Clim · Dakar",
-      "title": "Le partenaire de proximité du frigoriste sénégalais",
-      "subtitle": "Gaz réfrigérants, pièces détachées et outillage professionnel — en stock à Dakar, livrés en 24h. Un seul numéro, des gens du métier.",
+      "eyebrow": "Gaz réfrigérants · Froid & Climatisation · Dakar",
+      "title": "Le spécialiste du gaz réfrigérant à Dakar",
+      "subtitle": "R410A, R32, R134a et R22 — pour la climatisation, la réfrigération et les conteneurs frigorifiques. En stock à Dakar, livrés en 24h, avec les pièces et l'outillage assortis.",
       "ctaPrimary": "Discuter sur WhatsApp",
       "ctaSecondary": "Demander un devis",
       "metaStock": "Stock disponible aujourd'hui",
