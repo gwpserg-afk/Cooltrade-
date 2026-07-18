@@ -22,9 +22,10 @@
   --blue-2: 23 48 201;
   --on-blue: 255 255 255;
   --rust: 192 73 43;
-  /* WhatsApp CTAs use the brand blue (no green) */
-  --wa: 39 67 230;
-  --wa-2: 23 48 201;
+  /* WhatsApp keeps its own brand green — the one deliberate green, reserved
+     for WhatsApp CTAs so they read as WhatsApp and stand apart from the blue. */
+  --wa: 31 168 85;
+  --wa-2: 27 149 75;
 }
 
 :root[data-theme='dark'] {
@@ -41,8 +42,8 @@
   --blue-2: 133 147 255;
   --on-blue: 10 13 20;
   --rust: 217 118 78;
-  --wa: 110 130 255;
-  --wa-2: 133 147 255;
+  --wa: 38 182 97;
+  --wa-2: 46 200 110;
 }
 
 @layer base {
@@ -96,7 +97,7 @@
            active:translate-y-px disabled:cursor-not-allowed disabled:opacity-60;
   }
   .btn-wa {
-    @apply btn bg-wa text-on-blue hover:bg-wa-2;
+    @apply btn bg-wa text-white hover:bg-wa-2;
   }
   .btn-blue {
     @apply btn bg-blue text-on-blue hover:bg-blue-2;

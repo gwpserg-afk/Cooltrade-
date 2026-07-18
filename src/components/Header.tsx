@@ -119,7 +119,7 @@ export function Header() {
               href={whatsappLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-[38px] w-[38px] items-center justify-center rounded-lg bg-wa text-on-blue"
+              className="flex h-[38px] w-[38px] items-center justify-center rounded-lg bg-wa text-white"
               aria-label={t('common.whatsapp')}
             >
               <WhatsAppIcon className="h-[18px] w-[18px]" />

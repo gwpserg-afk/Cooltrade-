@@ -35,7 +35,7 @@ export function WhatsAppFloatingButton() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t('whatsapp.float')}
-        className="relative flex h-14 w-14 items-center justify-center rounded-full bg-wa text-on-blue shadow-xl transition-transform hover:scale-105 active:scale-95"
+        className="relative flex h-14 w-14 items-center justify-center rounded-full bg-wa text-white shadow-xl transition-transform hover:scale-105 active:scale-95"
       >
         <span className="absolute inset-0 rounded-full bg-wa motion-safe:animate-ring" />
         <WhatsAppIcon className="relative h-7 w-7" />
