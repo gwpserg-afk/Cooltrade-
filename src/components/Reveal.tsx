@@ -7,21 +7,34 @@ import {
   type ReactNode,
 } from 'react'
 
+type Direction = 'up' | 'left' | 'right' | 'scale' | 'none'
+
+const OFFSETS: Record<Direction, string> = {
+  up: 'translateY(20px)',
+  left: 'translateX(-28px)',
+  right: 'translateX(28px)',
+  scale: 'scale(0.96)',
+  none: 'none',
+}
+
 /**
- * Fades + lifts children into view on scroll. Respects prefers-reduced-motion
- * by rendering immediately without animation.
+ * Fades + moves children into view on scroll. `from` sets the entrance
+ * direction so sections can alternate for a more dynamic feel. Respects
+ * prefers-reduced-motion by rendering immediately without animation.
  */
 export function Reveal({
   children,
   delay = 0,
   className = '',
   as = 'div',
+  from = 'up',
   style,
 }: {
   children: ReactNode
   delay?: number
   className?: string
   as?: 'div' | 'li' | 'section'
+  from?: Direction
   style?: CSSProperties
 }) {
   const ref = useRef<HTMLElement | null>(null)
@@ -56,8 +69,9 @@ export function Reveal({
       style: {
         ...style,
         opacity: visible ? 1 : 0,
-        transform: visible ? 'none' : 'translateY(14px)',
-        transition: `opacity 0.6s ease-out ${delay}ms, transform 0.6s ease-out ${delay}ms`,
+        transform: visible ? 'none' : OFFSETS[from],
+        transition: `opacity 0.7s cubic-bezier(0.2,0.7,0.2,1) ${delay}ms, transform 0.7s cubic-bezier(0.2,0.7,0.2,1) ${delay}ms`,
+        willChange: visible ? 'auto' : 'opacity, transform',
       },
     },
     children,

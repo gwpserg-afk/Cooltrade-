@@ -49,11 +49,16 @@ export default {
           '70%': { transform: 'scale(1.5)', opacity: '0' },
           '100%': { opacity: '0' },
         },
+        gauge: {
+          '0%, 100%': { transform: 'rotate(-14deg)' },
+          '50%': { transform: 'rotate(16deg)' },
+        },
       },
       animation: {
         'fade-up': 'fade-up 0.6s ease-out both',
         marquee: 'marquee 34s linear infinite',
         ring: 'ring 2.8s cubic-bezier(0.4,0,0.6,1) infinite',
+        gauge: 'gauge 5s ease-in-out infinite',
       },
     },
   },

@@ -67,6 +67,12 @@
       "ctaLead": "Need a refrigerant or a part",
       "ctaAccent": "today"
     },
+    "facts": {
+      "delivery": "Delivery in Dakar",
+      "families": "Product families",
+      "refs": "References in stock",
+      "credit": "Trade credit for pros"
+    },
     "hero": {
       "eyebrow": "Import & distribution · Refrigeration & AC · Dakar",
       "title": "The Senegalese refrigeration technician's local partner",

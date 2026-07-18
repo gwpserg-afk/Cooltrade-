@@ -67,6 +67,12 @@
       "ctaLead": "Besoin d'un fluide ou d'une pièce",
       "ctaAccent": "aujourd'hui"
     },
+    "facts": {
+      "delivery": "Livraison dans Dakar",
+      "families": "Familles au catalogue",
+      "refs": "Références en stock",
+      "credit": "Crédit fournisseur pro"
+    },
     "hero": {
       "eyebrow": "Import-distribution · Froid & Clim · Dakar",
       "title": "Le partenaire de proximité du frigoriste sénégalais",
