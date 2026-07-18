@@ -26,7 +26,13 @@
   "whatsapp": {
     "float": "Discuter sur WhatsApp",
     "bubble": "Une question ? Écrivez-nous",
-    "defaultMessage": "Bonjour CoolTrade Sénégal, je suis un professionnel et je souhaite un renseignement."
+    "defaultMessage": "Bonjour CoolTrade Sénégal, je suis un professionnel et je souhaite un renseignement.",
+    "productQuote": "Bonjour, je souhaite un devis pour : {{product}}."
+  },
+  "language": {
+    "label": "Langue",
+    "fr": "Français",
+    "en": "English"
   },
   "footer": {
     "tagline": "Import-distribution de gaz réfrigérants, pièces détachées et outillage professionnel pour les métiers du froid et de la climatisation à Dakar.",
@@ -156,7 +162,8 @@
       "title": "Pourquoi le R32 compte",
       "p1": "Le secteur du froid change. Dans le cadre de l'Amendement de Kigali, les fluides à fort impact climatique (comme le R410A) sont progressivement remplacés par des alternatives plus propres. Le R32 est aujourd'hui la référence : même famille d'usage, empreinte carbone bien plus faible.",
       "p2": "Concrètement, pour vous, cela veut dire des installations plus efficaces et pérennes — mais aussi de nouvelles règles de manipulation. Nous vous accompagnons dans ce virage : choix du fluide, sécurité, et bons réflexes sur le terrain.",
-      "cta": "Parler de la transition R32"
+      "cta": "Parler de la transition R32",
+      "whatsappMessage": "Bonjour, je souhaite des conseils sur la transition vers le R32."
     },
     "diff": {
       "title": "Ce qui nous différencie",

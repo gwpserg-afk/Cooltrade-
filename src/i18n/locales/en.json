@@ -1,0 +1,357 @@
+{
+  "common": {
+    "quote": "Request a quote",
+    "quoteShort": "Quote",
+    "whatsapp": "WhatsApp",
+    "call": "Call",
+    "contactUs": "Contact us",
+    "contactForPrice": "Price on request",
+    "viewCatalog": "View catalog",
+    "learnMore": "Learn more",
+    "allCategories": "All categories",
+    "formats": "Available sizes",
+    "backHome": "Back to home",
+    "loading": "Loading…",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "nav": {
+    "home": "Home",
+    "catalog": "Catalog",
+    "services": "Services",
+    "pro": "Pro Space",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "whatsapp": {
+    "float": "Chat on WhatsApp",
+    "bubble": "A question? Message us",
+    "defaultMessage": "Hello CoolTrade Sénégal, I'm a professional and I'd like some information.",
+    "productQuote": "Hello, I'd like a quote for: {{product}}."
+  },
+  "language": {
+    "label": "Language",
+    "fr": "Français",
+    "en": "English"
+  },
+  "footer": {
+    "tagline": "Import and distribution of refrigerant gases, spare parts and professional tools for the refrigeration and air-conditioning trades in Dakar.",
+    "navTitle": "Navigation",
+    "catalogTitle": "Catalog",
+    "contactTitle": "Contact",
+    "hoursTitle": "Hours",
+    "proCta": "Open a professional account",
+    "rights": "All rights reserved.",
+    "legal": "Legal notice",
+    "legalNote": "Company registration in progress.",
+    "madeFor": "Built for refrigeration professionals in Senegal."
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Dakar · B2B Distribution",
+      "title": "The Senegalese refrigeration technician's local partner",
+      "subtitle": "Refrigerant gases, spare parts and professional tools — in stock in Dakar, delivered within 24h. Technical advice from people who know the trade, negotiated pricing for professionals.",
+      "ctaPrimary": "Chat on WhatsApp",
+      "ctaSecondary": "Request a quote",
+      "stat1": "24h",
+      "stat1Label": "Delivery within Dakar",
+      "stat2": "R32",
+      "stat2Label": "Guided transition",
+      "stat3": "30 d",
+      "stat3Label": "Trade credit for pros"
+    },
+    "values": {
+      "eyebrow": "Our strengths",
+      "title": "Why professionals work with us",
+      "subtitle": "A supplier who speaks your technical language and meets deadlines.",
+      "items": {
+        "delivery": {
+          "title": "24h delivery in Dakar",
+          "desc": "In-stock items delivered next day across Dakar and its suburbs. You're never stuck on a job site."
+        },
+        "advice": {
+          "title": "R410A → R32 technical advice",
+          "desc": "We help you choose the right refrigerant and prepare the switch to R32, safely and in compliance."
+        },
+        "credit": {
+          "title": "30-day trade credit",
+          "desc": "For regular professionals: an account with 30-day payment terms to ease your cash flow."
+        },
+        "storage": {
+          "title": "Secure gas storage",
+          "desc": "Our refrigerants are stored under safe, compliant conditions. Reliable, properly labelled cylinders."
+        }
+      }
+    },
+    "categories": {
+      "title": "Our catalog",
+      "subtitle": "Everything you need to install, repair and maintain — all in one place.",
+      "cta": "Explore the full catalog"
+    },
+    "segments": {
+      "eyebrow": "They trust us",
+      "title": "Who buys from us",
+      "subtitle": "From independent technicians to large accounts, we supply the entire refrigeration industry.",
+      "items": {
+        "tech": "Independent technicians",
+        "hvac": "HVAC companies",
+        "hotels": "Hotels & residences",
+        "supermarkets": "Supermarkets & retail",
+        "resellers": "Resellers & hardware stores"
+      }
+    },
+    "cta": {
+      "title": "Need a refrigerant or a part today?",
+      "subtitle": "Send us your reference on WhatsApp and we'll confirm availability and pricing right away.",
+      "primary": "Contact us on WhatsApp",
+      "secondary": "Visit the Pro Space"
+    }
+  },
+  "catalog": {
+    "eyebrow": "Catalog",
+    "title": "Gases, parts & tools for the refrigeration trades",
+    "subtitle": "Pick a category. Pricing is negotiated by volume — contact us for a quote tailored to your business.",
+    "priceNote": "Professional pricing negotiated by volume. No public prices — request your quote.",
+    "empty": "No products in this category yet.",
+    "productsCount_one": "{{count}} item",
+    "productsCount_other": "{{count}} items",
+    "quoteCta": "Request a quote for this category",
+    "categories": {
+      "gaz": {
+        "name": "Refrigerant gases",
+        "short": "R410A, R32, R134a, residual R22 — cylinders from 1 kg to 13.6 kg.",
+        "desc": "Refrigerant fluids in original cylinders, stored under safe and compliant conditions. Sizes from quick fixes to large installations."
+      },
+      "pieces": {
+        "name": "Spare parts",
+        "short": "Compressors, condensers, filter driers, expansion valves, fans.",
+        "desc": "The wear parts and essential components to repair and restore air conditioners, cold rooms and refrigerated display cases."
+      },
+      "outillage": {
+        "name": "Professional tools",
+        "short": "Manifolds, vacuum pumps, leak detectors, recovery stations, charging scales.",
+        "desc": "The technician's equipment, chosen to last in the field. Reliable brands, after-sales support included."
+      },
+      "consommables": {
+        "name": "Consumables & installation",
+        "short": "Brazing rods, flux, mounting brackets, installation kits.",
+        "desc": "All the consumables that run out fast on the job: brazing, flux, brackets and complete installation kits."
+      }
+    }
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "A refrigeration supplier built by and for the trade",
+    "lead": "CoolTrade Sénégal is an import-distribution company based in Dakar, dedicated to refrigeration and air-conditioning professionals. Our job: making sure you're never short of the refrigerant or the part your work site needs.",
+    "mission": {
+      "title": "Our mission",
+      "desc": "To make sourcing refrigerant gases, parts and tools simple, fast and reliable for Senegalese technicians — with honest technical advice and deadlines we keep."
+    },
+    "vision": {
+      "title": "Our vision",
+      "desc": "To become the reference partner of Senegal's refrigeration industry, supporting the transition to more environmentally friendly refrigerants such as R32."
+    },
+    "founder": {
+      "title": "A word from the founder",
+      "quote": "I started CoolTrade because too many technicians lose entire days hunting for a cylinder or a part. Our promise is simple: stock on hand, professional-to-professional advice, and deadlines we keep. Your success in the field is ours.",
+      "name": "Abdoul Lahad Niang",
+      "role": "Founder, CoolTrade Sénégal"
+    },
+    "r32": {
+      "eyebrow": "Understanding the transition",
+      "title": "Why R32 matters",
+      "p1": "The refrigeration sector is changing. Under the Kigali Amendment, high climate-impact refrigerants (like R410A) are gradually being replaced by cleaner alternatives. R32 is today's benchmark: same range of use, a much lower carbon footprint.",
+      "p2": "In practice, for you, that means more efficient, longer-lasting installations — but also new handling rules. We support you through this shift: refrigerant choice, safety, and the right habits in the field.",
+      "cta": "Discuss the R32 transition",
+      "whatsappMessage": "Hello, I'd like advice on the transition to R32."
+    },
+    "diff": {
+      "title": "What sets us apart",
+      "items": {
+        "stock": {
+          "title": "Stock that's really available",
+          "desc": "We don't sell what we don't have. Availability confirmed before you make the trip."
+        },
+        "proximity": {
+          "title": "Proximity",
+          "desc": "A contact who knows your trade and responds fast, on WhatsApp or at the depot."
+        },
+        "compliance": {
+          "title": "Compliance",
+          "desc": "Original refrigerants, secure storage, and support with new regulations."
+        },
+        "terms": {
+          "title": "Professional terms",
+          "desc": "Volume pricing and trade credit for regular accounts."
+        }
+      }
+    }
+  },
+  "services": {
+    "eyebrow": "Services",
+    "title": "Much more than a cylinder supplier",
+    "subtitle": "Complete support to secure your installations and grow your business.",
+    "items": {
+      "consulting": {
+        "title": "Technical advice & compliance",
+        "desc": "Choosing the right refrigerant for each installation, help with compliance and the R32 transition. We answer the real questions from the field."
+      },
+      "training": {
+        "title": "Safe-handling training",
+        "desc": "Short sessions on the safe handling of refrigerants, recovery and best practices. For you and your teams."
+      },
+      "aftersales": {
+        "title": "Parts & after-sales support",
+        "desc": "Identifying the right part, fast availability and follow-up. We help you find the exact reference — even from a simple photo."
+      },
+      "credit": {
+        "title": "Trade credit for pros",
+        "desc": "For regular professionals, an account with 30-day payment terms to finance your projects without straining cash flow."
+      }
+    },
+    "creditProgram": {
+      "eyebrow": "Credit program",
+      "title": "30-day trade credit",
+      "desc": "Reserved for regular professionals, our credit program lets you source now and pay in 30 days. Simple eligibility, reviewed case by case.",
+      "eligibilityTitle": "Eligibility requirements",
+      "eligibility": [
+        "Be an active refrigeration or air-conditioning professional",
+        "Show a regular purchasing volume",
+        "Provide your business details (RCCM / NINEA if available)"
+      ],
+      "cta": "Apply for a pro account"
+    },
+    "cta": {
+      "title": "Let's talk about your needs",
+      "subtitle": "A project, an installation, a technical question? Message us.",
+      "primary": "Contact us on WhatsApp"
+    }
+  },
+  "pro": {
+    "eyebrow": "Pro Space",
+    "title": "Terms designed for professionals",
+    "subtitle": "Volume pricing, trade credit and priority on stock. Open your pro account in minutes.",
+    "benefits": {
+      "title": "Pro account benefits",
+      "items": {
+        "pricing": {
+          "title": "Volume pricing",
+          "desc": "Prices that drop with your volumes, negotiated to your business."
+        },
+        "credit": {
+          "title": "30-day payment terms",
+          "desc": "Trade credit to ease your cash flow on big projects."
+        },
+        "priority": {
+          "title": "Priority stock & delivery",
+          "desc": "Your orders handled first, with fast delivery in Dakar."
+        },
+        "advisor": {
+          "title": "A dedicated contact",
+          "desc": "A direct contact who knows your account and your habits."
+        }
+      }
+    },
+    "form": {
+      "title": "Professional account request",
+      "subtitle": "5 fields, 2 minutes. We'll get back to you quickly to finalize your account.",
+      "whatsappAlt": "Prefer WhatsApp? Send us your request directly.",
+      "whatsappCta": "Apply via WhatsApp",
+      "whatsappMessage": "Hello CoolTrade, I'd like to open a professional account."
+    }
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Let's talk about your supply",
+    "subtitle": "A reference to check, a quote, an urgent delivery? WhatsApp is fastest — but pick the channel that suits you.",
+    "infoTitle": "Our details",
+    "depot": "Depot",
+    "phone": "Phone",
+    "whatsapp": "WhatsApp Business",
+    "email": "Email",
+    "hours": "Opening hours",
+    "mapTitle": "Find us",
+    "mapPlaceholder": "Exact depot address to be confirmed — call us for directions.",
+    "formTitle": "Send us a message",
+    "whatsappMessage": "Hello CoolTrade Sénégal, I have a request."
+  },
+  "legal": {
+    "eyebrow": "Legal information",
+    "title": "Legal notice",
+    "updated": "Last updated",
+    "intro": "The information below will be completed as the company's registration progresses.",
+    "sections": {
+      "editor": {
+        "title": "Site publisher",
+        "body": "This site is published by CoolTrade Sénégal (provisional name, registration with APIX in progress). Founder: Abdoul Lahad Niang. Head office: Dakar, Senegal."
+      },
+      "registration": {
+        "title": "Registration",
+        "body": "NINEA and RCCM: being assigned. This information will be published here as soon as it is issued."
+      },
+      "hosting": {
+        "title": "Hosting",
+        "body": "Site hosted on static infrastructure (Cloudflare Pages). The host's details will be specified here."
+      },
+      "data": {
+        "title": "Personal data",
+        "body": "Information submitted through the contact and pro-account forms is used only to process your request and is never resold. For any question about your data, contact us."
+      },
+      "ip": {
+        "title": "Intellectual property",
+        "body": "All content on this site (text, visuals, logo) is the property of CoolTrade Sénégal, unless otherwise stated."
+      }
+    }
+  },
+  "forms": {
+    "name": "Full name",
+    "namePlaceholder": "e.g. Amadou Diallo",
+    "company": "Company / Workshop",
+    "companyPlaceholder": "Your company name (optional)",
+    "phone": "Phone",
+    "phonePlaceholder": "77 000 00 00",
+    "whatsapp": "WhatsApp",
+    "whatsappPlaceholder": "77 000 00 00 (if different)",
+    "email": "Email",
+    "emailPlaceholder": "you@example.com",
+    "regNumber": "RCCM / NINEA",
+    "regNumberPlaceholder": "If available (optional)",
+    "volume": "Estimated monthly purchase volume",
+    "volumePlaceholder": "Select a range",
+    "volumeOptions": {
+      "small": "Under 200,000 FCFA",
+      "medium": "200,000 – 1,000,000 FCFA",
+      "large": "1,000,000 – 5,000,000 FCFA",
+      "xlarge": "Over 5,000,000 FCFA"
+    },
+    "subject": "Subject",
+    "subjectPlaceholder": "What is your request about",
+    "message": "Message",
+    "messagePlaceholder": "Describe your need: references, quantities, deadlines…",
+    "segment": "You are",
+    "segmentOptions": {
+      "tech": "Independent technician",
+      "hvac": "HVAC company",
+      "hotel": "Hotel / residence",
+      "supermarket": "Supermarket / retail",
+      "reseller": "Reseller / hardware store",
+      "other": "Other"
+    },
+    "submit": "Send request",
+    "submitting": "Sending…",
+    "required": "Required field",
+    "successTitle": "Message sent",
+    "successBody": "Thank you! We'll get back to you very soon. For an immediate reply, message us on WhatsApp.",
+    "errorTitle": "Sending failed",
+    "errorBody": "Something went wrong. Try again or contact us directly on WhatsApp.",
+    "fallbackNotice": "The form isn't connected yet. In the meantime, send your request directly:",
+    "sendWhatsapp": "Send on WhatsApp",
+    "invalidEmail": "Invalid email address",
+    "invalidPhone": "Invalid phone number"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "subtitle": "The page you're looking for doesn't exist or has moved.",
+    "cta": "Back to home"
+  }
+}

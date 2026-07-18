@@ -7,7 +7,7 @@ outillage professionnel pour les métiers du froid et de la climatisation.
 Objectif du site : **construire la crédibilité auprès des professionnels et les
 diriger vers WhatsApp / téléphone / dépôt** — pas de vente en ligne.
 
-- **Langue :** Français (structure i18n en place pour ajouter l'anglais plus tard)
+- **Langues :** Français (par défaut) + Anglais — bascule FR/EN dans l'en-tête
 - **Stack :** React + TypeScript + Vite + Tailwind CSS + React Router + react-i18next
 - **Déploiement :** site statique (Cloudflare Pages recommandé)
 - **Panneau d'admin :** intégré, à `/admin`
@@ -76,12 +76,24 @@ le contenu. Pour rendre les modifications **permanentes sur le site en ligne** :
 
 ---
 
-## 🌍 Internationalisation
+## 🌍 Internationalisation — FR / EN
 
-Le site est **français d'abord**. L'ossature i18n (`react-i18next`) est en place :
-pour ajouter l'anglais, créer `src/i18n/locales/en.json` avec la même structure de
-clés que `fr.json`, puis l'enregistrer dans `src/i18n/index.ts`. Aucun changement
-de code dans les pages.
+Le site est **bilingue français / anglais**, français par défaut (et langue de
+repli). La bascule FR/EN se trouve dans l'en-tête ; le choix est mémorisé
+(localStorage) et l'attribut `<html lang>` est synchronisé automatiquement.
+
+- **Textes de l'interface** — `src/i18n/locales/fr.json` et `en.json`
+  (mêmes clés). Fichiers gérés par `react-i18next`.
+- **Contenu du catalogue** (bilingue) — chaque produit a des champs `{ fr, en }`
+  résolus par `src/lib/localize.ts` (`tx()`), avec repli automatique sur le
+  français. L'éditeur de l'admin propose un champ **FR** et un champ **EN** pour
+  chaque produit ; laisser l'anglais vide utilise le français partout.
+
+**Ajouter une 3ᵉ langue** (ex. Wolof) : créer `src/i18n/locales/xx.json` avec la
+même structure, l'enregistrer dans `resources` + `AVAILABLE_LANGUAGES`
+(`src/i18n/index.ts`). Le sélecteur de langue et le repli s'adaptent tout seuls.
+
+> Le panneau d'administration est en français uniquement (outil interne).
 
 ---
 

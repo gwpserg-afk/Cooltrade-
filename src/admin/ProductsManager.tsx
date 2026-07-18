@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { CATEGORIES, type CategoryId, type Product } from '@/data/catalog'
 import { useProducts } from '@/hooks/useProducts'
+import { tx, toPair, fromPair, type Localized } from '@/lib/localize'
 import {
   upsertProduct,
   deleteProduct,
@@ -40,11 +41,11 @@ export function ProductsManager() {
     setIsNew(true)
   }
   function startEdit(p: Product) {
-    setEditing({ ...p, specs: p.specs ?? [], badge: p.badge ?? '' })
+    setEditing({ ...p })
     setIsNew(false)
   }
   function onDelete(p: Product) {
-    if (confirm(`Supprimer « ${p.name} » ? Cette action est réversible via « Réinitialiser ».`)) {
+    if (confirm(`Supprimer « ${tx(p.name, 'fr')} » ? Cette action est réversible via « Réinitialiser ».`)) {
       deleteProduct(p.id)
     }
   }
@@ -69,7 +70,7 @@ export function ProductsManager() {
         <div>
           <h1 className="text-2xl font-bold text-steel-900">Catalogue</h1>
           <p className="mt-1 text-sm text-steel-500">
-            {products.length} produit{products.length > 1 ? 's' : ''} · {CATEGORIES.length} catégories
+            {products.length} produit{products.length > 1 ? 's' : ''} · {CATEGORIES.length} catégories · FR / EN
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -108,10 +109,12 @@ export function ProductsManager() {
                   >
                     <div className="min-w-0">
                       <div className="flex items-center gap-2">
-                        <span className="truncate font-semibold text-steel-900">{p.name}</span>
+                        <span className="truncate font-semibold text-steel-900">
+                          {tx(p.name, 'fr')}
+                        </span>
                         {p.badge && (
                           <span className="rounded bg-sun-100 px-1.5 py-0.5 text-xs font-semibold text-sun-800">
-                            {p.badge}
+                            {tx(p.badge, 'fr')}
                           </span>
                         )}
                         {p.featured && (
@@ -119,8 +122,19 @@ export function ProductsManager() {
                             Vedette
                           </span>
                         )}
+                        {typeof p.name !== 'string' && p.name.en ? (
+                          <span className="rounded bg-steel-100 px-1.5 py-0.5 text-xs font-semibold text-steel-500">
+                            EN ✓
+                          </span>
+                        ) : (
+                          <span className="rounded bg-steel-100 px-1.5 py-0.5 text-xs font-semibold text-steel-400">
+                            EN —
+                          </span>
+                        )}
                       </div>
-                      <p className="mt-0.5 truncate text-sm text-steel-500">{p.description}</p>
+                      <p className="mt-0.5 truncate text-sm text-steel-500">
+                        {tx(p.description, 'fr')}
+                      </p>
                     </div>
                     <div className="flex shrink-0 gap-1">
                       <button
@@ -161,6 +175,13 @@ export function ProductsManager() {
   )
 }
 
+/** Zip two comma-separated lists (FR / EN) into a Localized[] for specs. */
+function zipSpecs(frText: string, enText: string): Localized[] {
+  const fr = frText.split(',').map((s) => s.trim()).filter(Boolean)
+  const en = enText.split(',').map((s) => s.trim()).filter(Boolean)
+  return fr.map((f, i) => fromPair({ fr: f, en: en[i] ?? '' }))
+}
+
 function ProductEditor({
   product,
   isNew,
@@ -173,20 +194,35 @@ function ProductEditor({
   onSave: (p: Product) => void
 }) {
   const { t } = useTranslation()
-  const [form, setForm] = useState<Product>(product)
+  const [id, setId] = useState(product.id)
+  const [categoryId, setCategoryId] = useState<CategoryId>(product.categoryId)
+  const [featured, setFeatured] = useState(!!product.featured)
+  const [name, setName] = useState(toPair(product.name))
+  const [description, setDescription] = useState(toPair(product.description))
+  const [badge, setBadge] = useState(toPair(product.badge))
   const [formatsText, setFormatsText] = useState(product.formats.join(', '))
-  const [specsText, setSpecsText] = useState((product.specs ?? []).join(', '))
+  const [specsFr, setSpecsFr] = useState(
+    (product.specs ?? []).map((s) => toPair(s).fr).join(', '),
+  )
+  const [specsEn, setSpecsEn] = useState(
+    (product.specs ?? []).map((s) => toPair(s).en).join(', '),
+  )
 
   function save() {
-    if (!form.name.trim() || !form.id.trim()) {
-      alert('Le nom et l’identifiant sont obligatoires.')
+    if (!name.fr.trim() || !id.trim()) {
+      alert('Le nom (FR) et l’identifiant sont obligatoires.')
       return
     }
+    const badgePair = badge.fr.trim() ? fromPair(badge) : undefined
     onSave({
-      ...form,
+      id: id.trim(),
+      categoryId,
+      featured,
+      name: fromPair(name),
+      description: fromPair(description),
       formats: formatsText.split(',').map((s) => s.trim()).filter(Boolean),
-      specs: specsText.split(',').map((s) => s.trim()).filter(Boolean),
-      badge: form.badge?.trim() || undefined,
+      specs: zipSpecs(specsFr, specsEn),
+      badge: badgePair,
     })
   }
 
@@ -196,7 +232,7 @@ function ProductEditor({
         className="h-full w-full max-w-lg overflow-y-auto bg-white shadow-card-hover"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="sticky top-0 flex items-center justify-between border-b border-steel-100 bg-white px-6 py-4">
+        <div className="sticky top-0 z-10 flex items-center justify-between border-b border-steel-100 bg-white px-6 py-4">
           <h2 className="font-bold text-steel-900">
             {isNew ? 'Nouveau produit' : 'Modifier le produit'}
           </h2>
@@ -205,25 +241,24 @@ function ProductEditor({
           </button>
         </div>
 
-        <div className="space-y-4 p-6">
-          <div>
-            <label className="field-label">Nom du produit *</label>
-            <input
-              className="field-input"
-              value={form.name}
-              onChange={(e) => setForm({ ...form, name: e.target.value })}
-            />
-          </div>
+        <div className="space-y-5 p-6">
+          {/* Name FR/EN */}
+          <BilingualField
+            label="Nom du produit"
+            required
+            fr={name.fr}
+            en={name.en}
+            onFr={(v) => setName({ ...name, fr: v })}
+            onEn={(v) => setName({ ...name, en: v })}
+          />
 
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="field-label">Catégorie</label>
               <select
                 className="field-input"
-                value={form.categoryId}
-                onChange={(e) =>
-                  setForm({ ...form, categoryId: e.target.value as CategoryId })
-                }
+                value={categoryId}
+                onChange={(e) => setCategoryId(e.target.value as CategoryId)}
               >
                 {CATEGORIES.map((c) => (
                   <option key={c.id} value={c.id}>
@@ -236,22 +271,22 @@ function ProductEditor({
               <label className="field-label">Identifiant *</label>
               <input
                 className="field-input font-mono text-xs"
-                value={form.id}
+                value={id}
                 disabled={!isNew}
-                onChange={(e) => setForm({ ...form, id: e.target.value })}
+                onChange={(e) => setId(e.target.value)}
               />
             </div>
           </div>
 
-          <div>
-            <label className="field-label">Description</label>
-            <textarea
-              className="field-input resize-y"
-              rows={3}
-              value={form.description}
-              onChange={(e) => setForm({ ...form, description: e.target.value })}
-            />
-          </div>
+          {/* Description FR/EN */}
+          <BilingualField
+            label="Description"
+            multiline
+            fr={description.fr}
+            en={description.en}
+            onFr={(v) => setDescription({ ...description, fr: v })}
+            onEn={(v) => setDescription({ ...description, en: v })}
+          />
 
           <div>
             <label className="field-label">Formats disponibles</label>
@@ -261,40 +296,62 @@ function ProductEditor({
               value={formatsText}
               onChange={(e) => setFormatsText(e.target.value)}
             />
-            <p className="mt-1 text-xs text-steel-400">Séparés par des virgules.</p>
+            <p className="mt-1 text-xs text-steel-400">
+              Séparés par des virgules. Communs aux deux langues (unités, formats).
+            </p>
           </div>
 
           <div>
             <label className="field-label">Points techniques (specs)</label>
-            <input
-              className="field-input"
-              placeholder="GWP réduit, Bouteille rechargeable"
-              value={specsText}
-              onChange={(e) => setSpecsText(e.target.value)}
-            />
-            <p className="mt-1 text-xs text-steel-400">Séparés par des virgules.</p>
+            <div className="space-y-2">
+              <div>
+                <span className="mb-1 inline-block rounded bg-frost-100 px-1.5 py-0.5 text-[10px] font-bold text-frost-700">
+                  FR
+                </span>
+                <input
+                  className="field-input"
+                  placeholder="GWP réduit, Bouteille rechargeable"
+                  value={specsFr}
+                  onChange={(e) => setSpecsFr(e.target.value)}
+                />
+              </div>
+              <div>
+                <span className="mb-1 inline-block rounded bg-steel-100 px-1.5 py-0.5 text-[10px] font-bold text-steel-600">
+                  EN
+                </span>
+                <input
+                  className="field-input"
+                  placeholder="Lower GWP, Refillable cylinder"
+                  value={specsEn}
+                  onChange={(e) => setSpecsEn(e.target.value)}
+                />
+              </div>
+            </div>
+            <p className="mt-1 text-xs text-steel-400">
+              Séparés par des virgules, dans le même ordre FR/EN.
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="field-label">Badge (optionnel)</label>
-              <input
-                className="field-input"
-                placeholder="Éco R32, Populaire…"
-                value={form.badge ?? ''}
-                onChange={(e) => setForm({ ...form, badge: e.target.value })}
-              />
-            </div>
-            <label className="flex cursor-pointer items-end gap-2 pb-2.5">
-              <input
-                type="checkbox"
-                className="h-4 w-4 rounded border-steel-300 text-frost-600"
-                checked={!!form.featured}
-                onChange={(e) => setForm({ ...form, featured: e.target.checked })}
-              />
-              <span className="text-sm text-steel-700">Produit vedette</span>
-            </label>
-          </div>
+          {/* Badge FR/EN + featured */}
+          <BilingualField
+            label="Badge (optionnel)"
+            fr={badge.fr}
+            en={badge.en}
+            onFr={(v) => setBadge({ ...badge, fr: v })}
+            onEn={(v) => setBadge({ ...badge, en: v })}
+            placeholderFr="Éco R32, Populaire…"
+            placeholderEn="Eco R32, Popular…"
+          />
+
+          <label className="flex cursor-pointer items-center gap-2">
+            <input
+              type="checkbox"
+              className="h-4 w-4 rounded border-steel-300 text-frost-600"
+              checked={featured}
+              onChange={(e) => setFeatured(e.target.checked)}
+            />
+            <span className="text-sm text-steel-700">Produit vedette (mis en avant)</span>
+          </label>
         </div>
 
         <div className="sticky bottom-0 flex justify-end gap-2 border-t border-steel-100 bg-white px-6 py-4">
@@ -304,6 +361,81 @@ function ProductEditor({
           <button onClick={save} className="btn-primary text-sm">
             Enregistrer
           </button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function BilingualField({
+  label,
+  required,
+  multiline,
+  fr,
+  en,
+  onFr,
+  onEn,
+  placeholderFr,
+  placeholderEn,
+}: {
+  label: string
+  required?: boolean
+  multiline?: boolean
+  fr: string
+  en: string
+  onFr: (v: string) => void
+  onEn: (v: string) => void
+  placeholderFr?: string
+  placeholderEn?: string
+}) {
+  return (
+    <div>
+      <label className="field-label">
+        {label}
+        {required && <span className="ml-0.5 text-sun-600">*</span>}
+      </label>
+      <div className="space-y-2">
+        <div className="relative">
+          <span className="absolute left-2 top-2.5 rounded bg-frost-100 px-1.5 py-0.5 text-[10px] font-bold text-frost-700">
+            FR
+          </span>
+          {multiline ? (
+            <textarea
+              className="field-input resize-y pl-11"
+              rows={3}
+              value={fr}
+              placeholder={placeholderFr}
+              onChange={(e) => onFr(e.target.value)}
+            />
+          ) : (
+            <input
+              className="field-input pl-11"
+              value={fr}
+              placeholder={placeholderFr}
+              onChange={(e) => onFr(e.target.value)}
+            />
+          )}
+        </div>
+        <div className="relative">
+          <span className="absolute left-2 top-2.5 rounded bg-steel-100 px-1.5 py-0.5 text-[10px] font-bold text-steel-600">
+            EN
+          </span>
+          {multiline ? (
+            <textarea
+              className="field-input resize-y pl-11"
+              rows={3}
+              value={en}
+              placeholder={placeholderEn}
+              onChange={(e) => onEn(e.target.value)}
+            />
+          ) : (
+            <input
+              className="field-input pl-11"
+              value={en}
+              placeholder={placeholderEn}
+              onChange={(e) => onEn(e.target.value)}
+            />
+          )}
         </div>
       </div>
     </div>
@@ -332,7 +464,7 @@ function ImportDialog({ onClose }: { onClose: () => void }) {
         </p>
         <textarea
           className="field-input mt-4 h-48 resize-none font-mono text-xs"
-          placeholder='[ { "id": "...", "categoryId": "gaz", ... } ]'
+          placeholder='[ { "id": "...", "categoryId": "gaz", "name": { "fr": "...", "en": "..." } } ]'
           value={text}
           onChange={(e) => {
             setText(e.target.value)

@@ -86,9 +86,7 @@ export function AboutPage() {
               <p className="leading-relaxed text-steel-700">{t('about.r32.p1')}</p>
               <p className="leading-relaxed text-steel-700">{t('about.r32.p2')}</p>
               <a
-                href={whatsappLink(
-                  'Bonjour, je souhaite des conseils sur la transition vers le R32.',
-                )}
+                href={whatsappLink(t('about.r32.whatsappMessage'))}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-whatsapp mt-2"

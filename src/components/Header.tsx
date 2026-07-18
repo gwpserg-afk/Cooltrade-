@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { nav } from '@/config/site'
 import { whatsappLink } from '@/config/brand'
 import { Logo } from './Logo'
+import { LanguageSwitcher } from './LanguageSwitcher'
 import { WhatsAppIcon, MenuIcon, CloseIcon, ArrowRightIcon } from './Icons'
 
 export function Header() {
@@ -64,6 +65,7 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-2.5 lg:flex">
+          <LanguageSwitcher />
           <a
             href={whatsappLink()}
             target="_blank"
@@ -110,6 +112,10 @@ export function Header() {
                 <ArrowRightIcon className="h-4 w-4 opacity-40" />
               </NavLink>
             ))}
+            <div className="mt-3 flex items-center justify-between border-t border-steel-100 pt-4">
+              <span className="text-sm font-medium text-steel-500">{t('language.label')}</span>
+              <LanguageSwitcher />
+            </div>
             <div className="mt-3 grid grid-cols-1 gap-2.5">
               <a
                 href={whatsappLink()}

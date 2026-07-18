@@ -3,9 +3,9 @@ import { PageHero } from '@/components/PageHero'
 import { Reveal } from '@/components/Reveal'
 
 export function LegalPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const sectionKeys = ['editor', 'registration', 'hosting', 'data', 'ip'] as const
-  const today = new Date().toLocaleDateString('fr-FR', {
+  const today = new Date().toLocaleDateString(i18n.language === 'en' ? 'en-GB' : 'fr-FR', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
