@@ -53,8 +53,8 @@ export function FounderNote({ num }: { num?: string }) {
           <div
             className="relative ml-auto flex aspect-square max-w-[230px] items-center justify-center overflow-hidden rounded-[20px] font-serif text-[clamp(2.6rem,5vw,4rem)] font-semibold"
             style={{
-              background: 'linear-gradient(155deg,#1c1811,#2a231a)',
-              color: '#F3EEE4',
+              background: 'linear-gradient(155deg,#12161f,#1b2130)',
+              color: '#F2F5FA',
             }}
           >
             <span

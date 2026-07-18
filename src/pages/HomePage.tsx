@@ -186,12 +186,12 @@ export function HomePage() {
       </section>
 
       {/* ---------------- Final CTA (always-dark block) ---------------- */}
-      <section style={{ background: '#17120B' }}>
+      <section style={{ background: '#0A0D14' }}>
         <div className="container-page flex flex-col items-center py-16 text-center sm:py-24 lg:py-28">
           <Reveal from="scale" className="flex flex-col items-center">
             <h2
               className="max-w-[15ch] font-serif text-[clamp(2.2rem,5vw,4rem)] font-semibold leading-[1.05]"
-              style={{ color: '#F3EEE4' }}
+              style={{ color: '#F2F5FA' }}
             >
               {t('home.h.ctaLead')}{' '}
               <span className="font-serif italic" style={{ color: '#8B99FF' }}>
@@ -199,7 +199,7 @@ export function HomePage() {
               </span>
               {qm}
             </h2>
-            <p className="mt-4 max-w-[46ch] text-lg" style={{ color: 'rgba(243,238,228,0.64)' }}>
+            <p className="mt-4 max-w-[46ch] text-lg" style={{ color: 'rgba(242,245,250,0.64)' }}>
               {t('home.cta.subtitle')}
             </p>
             <div className="mt-9 flex flex-wrap justify-center gap-3">
@@ -212,8 +212,8 @@ export function HomePage() {
                 className="btn"
                 style={{
                   background: 'transparent',
-                  color: '#F3EEE4',
-                  borderColor: 'rgba(243,238,228,0.28)',
+                  color: '#F2F5FA',
+                  borderColor: 'rgba(242,245,250,0.28)',
                 }}
               >
                 {t('home.cta.secondary')}

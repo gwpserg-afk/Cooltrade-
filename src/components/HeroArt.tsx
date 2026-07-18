@@ -1,8 +1,9 @@
 /**
- * Custom hero illustration — a refrigeration "spec bench": three colour-coded
+ * Custom hero illustration — a refrigeration "charging bench": three colour-coded
  * refrigerant cylinders (valve handwheel + labelled collar, like the real
- * bottles) and a pressure gauge. Clean line art in the brand palette — no stock
- * photo, no emoji. Swap this one component for a product photo later.
+ * bottles) and a pressure gauge, one cylinder linked to the gauge by a charging
+ * hose. Clean line art in the brand palette — no stock photo, no emoji. Swap
+ * this one component for a product photo later.
  */
 
 function Cylinder({
@@ -25,6 +26,8 @@ function Cylinder({
   const cx = x + w / 2
   return (
     <g>
+      {/* contact shadow */}
+      <ellipse cx={cx} cy={top + h + 4} rx={w * 0.52} ry="6" className="fill-ink" fillOpacity="0.08" />
       {/* body */}
       <rect x={x} y={top} width={w} height={h} rx={w * 0.42} className="fill-card stroke-ink" strokeWidth="2.5" />
       {/* valve neck */}
@@ -41,13 +44,13 @@ function Cylinder({
         fontFamily="'IBM Plex Mono',monospace"
         fontSize={fontSize}
         fontWeight="600"
-        fill="#0b0e1f"
+        fill="#0b0e14"
         fillOpacity="0.85"
       >
         {label}
       </text>
       {/* level ticks */}
-      <path d={`M${x + 14} ${top + h - 60}h${w - 28}M${x + 14} ${top + h - 34}h${w - 28}`} className="stroke-ink" strokeOpacity="0.28" strokeWidth="2" strokeLinecap="round" />
+      <path d={`M${x + 14} ${top + h - 60}h${w - 28}M${x + 14} ${top + h - 34}h${w - 28}`} className="stroke-ink" strokeOpacity="0.26" strokeWidth="2" strokeLinecap="round" />
     </g>
   )
 }
@@ -58,13 +61,24 @@ export function HeroArt({ className = '' }: { className?: string }) {
       {/* Panel */}
       <rect x="14" y="20" width="492" height="430" rx="24" className="fill-card-2 stroke-line" strokeWidth="1" />
       {/* faint blueprint grid */}
-      <g className="stroke-line" strokeOpacity="0.6">
+      <g className="stroke-line" strokeOpacity="0.7">
         <path d="M14 130h492M14 240h492M14 350h492" />
         <path d="M140 20v430M270 20v430M400 20v430" />
       </g>
 
       {/* Bench line */}
       <path d="M52 392h416" className="stroke-ink" strokeWidth="2.5" strokeLinecap="round" />
+
+      {/* Charging hose: R32 cylinder valve -> gauge port */}
+      <path
+        d="M129 138 C 129 96, 300 84, 362 128"
+        stroke="#2743E6"
+        strokeWidth="3.4"
+        strokeLinecap="round"
+        fill="none"
+        strokeOpacity="0.9"
+      />
+      <circle cx="362" cy="130" r="4.5" fill="#2743E6" />
 
       {/* Cylinders */}
       <Cylinder x={90} top={168} w={78} h={224} color="#7E9CB6" label="R32" fontSize={14} />
@@ -88,8 +102,8 @@ export function HeroArt({ className = '' }: { className?: string }) {
 
       {/* Snow / cold accents */}
       <g stroke="#2743E6" strokeWidth="2" strokeLinecap="round" opacity="0.5">
-        <path d="M472 320v18M463 329h18M466 323l12 12M478 323l-12 12" />
-        <path d="M60 110v12M54 116h12M56 112l8 8M64 112l-8 8" />
+        <path d="M472 324v18M463 333h18M466 327l12 12M478 327l-12 12" />
+        <path d="M60 116v12M54 122h12M56 118l8 8M64 118l-8 8" />
       </g>
     </svg>
   )

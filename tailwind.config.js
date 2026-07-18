@@ -25,7 +25,7 @@ export default {
         r410: '#C67DA0',
         r32: '#7E9CB6',
         r134: '#5C9DD0',
-        r22: '#6FA982',
+        r22: '#9AA3B2',
       },
       fontFamily: {
         serif: ['Newsreader', 'Georgia', '"Times New Roman"', 'serif'],

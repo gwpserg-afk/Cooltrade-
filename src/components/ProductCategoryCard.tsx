@@ -40,7 +40,7 @@ export function ProductCategoryCard({
 
       {category.id === 'gaz' && (
         <div className="mt-4 flex gap-1.5">
-          {['#C67DA0', '#7E9CB6', '#5C9DD0', '#6FA982'].map((c) => (
+          {['#C67DA0', '#7E9CB6', '#5C9DD0', '#9AA3B2'].map((c) => (
             <span key={c} className="h-2.5 w-2.5 rounded-[3px]" style={{ background: c }} />
           ))}
         </div>

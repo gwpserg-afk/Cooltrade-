@@ -99,12 +99,12 @@ export function ServicesPage() {
         <div className="container-page">
           <Reveal
             className="flex flex-col items-center rounded-3xl px-6 py-14 text-center sm:px-12"
-            style={{ background: '#17120B' }}
+            style={{ background: '#0A0D14' }}
           >
-            <h2 className="font-serif text-2xl font-semibold sm:text-3xl" style={{ color: '#F3EEE4' }}>
+            <h2 className="font-serif text-2xl font-semibold sm:text-3xl" style={{ color: '#F2F5FA' }}>
               {t('services.cta.title')}
             </h2>
-            <p className="mx-auto mt-3 max-w-xl" style={{ color: 'rgba(243,238,228,0.64)' }}>
+            <p className="mx-auto mt-3 max-w-xl" style={{ color: 'rgba(242,245,250,0.64)' }}>
               {t('services.cta.subtitle')}
             </p>
             <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="btn-wa mt-7">

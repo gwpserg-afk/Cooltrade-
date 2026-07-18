@@ -9,39 +9,40 @@
    ============================================================ */
 :root,
 :root[data-theme='light'] {
-  --paper: 241 236 226;
-  --paper-2: 232 224 209;
-  --card: 251 248 241;
-  --card-2: 245 240 230;
-  --ink: 24 20 16;
-  --ink-soft: 84 77 66;
-  --ink-faint: 139 128 114;
-  --line: 222 211 193;
-  --line-soft: 232 224 208;
+  --paper: 255 255 255;
+  --paper-2: 238 242 247;
+  --card: 255 255 255;
+  --card-2: 244 246 250;
+  --ink: 11 14 20;
+  --ink-soft: 65 72 85;
+  --ink-faint: 138 147 163;
+  --line: 227 231 237;
+  --line-soft: 237 240 244;
   --blue: 39 67 230;
-  --blue-2: 28 52 196;
-  --on-blue: 244 243 255;
-  --rust: 185 84 47;
-  --wa: 31 168 85;
-  --wa-2: 27 149 75;
+  --blue-2: 23 48 201;
+  --on-blue: 255 255 255;
+  --rust: 192 73 43;
+  /* WhatsApp CTAs use the brand blue (no green) */
+  --wa: 39 67 230;
+  --wa-2: 23 48 201;
 }
 
 :root[data-theme='dark'] {
-  --paper: 19 16 9;
-  --paper-2: 27 23 16;
-  --card: 28 24 17;
-  --card-2: 33 28 19;
-  --ink: 241 234 222;
-  --ink-soft: 180 169 149;
-  --ink-faint: 132 122 107;
-  --line: 44 38 25;
-  --line-soft: 36 31 21;
-  --blue: 126 143 255;
-  --blue-2: 147 160 255;
-  --on-blue: 11 14 31;
+  --paper: 10 13 20;
+  --paper-2: 16 20 29;
+  --card: 18 22 31;
+  --card-2: 22 27 38;
+  --ink: 242 245 250;
+  --ink-soft: 167 176 191;
+  --ink-faint: 108 118 136;
+  --line: 35 42 56;
+  --line-soft: 26 32 41;
+  --blue: 110 130 255;
+  --blue-2: 133 147 255;
+  --on-blue: 10 13 20;
   --rust: 217 118 78;
-  --wa: 31 168 85;
-  --wa-2: 38 182 97;
+  --wa: 110 130 255;
+  --wa-2: 133 147 255;
 }
 
 @layer base {
@@ -95,7 +96,7 @@
            active:translate-y-px disabled:cursor-not-allowed disabled:opacity-60;
   }
   .btn-wa {
-    @apply btn bg-wa text-white hover:bg-wa-2;
+    @apply btn bg-wa text-on-blue hover:bg-wa-2;
   }
   .btn-blue {
     @apply btn bg-blue text-on-blue hover:bg-blue-2;
