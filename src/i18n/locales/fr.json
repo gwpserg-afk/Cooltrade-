@@ -1,0 +1,350 @@
+{
+  "common": {
+    "quote": "Demander un devis",
+    "quoteShort": "Devis",
+    "whatsapp": "WhatsApp",
+    "call": "Appeler",
+    "contactUs": "Nous contacter",
+    "contactForPrice": "Prix sur demande",
+    "viewCatalog": "Voir le catalogue",
+    "learnMore": "En savoir plus",
+    "allCategories": "Toutes les catégories",
+    "formats": "Formats disponibles",
+    "backHome": "Retour à l'accueil",
+    "loading": "Chargement…",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu"
+  },
+  "nav": {
+    "home": "Accueil",
+    "catalog": "Catalogue",
+    "services": "Services",
+    "pro": "Espace Pro",
+    "about": "À propos",
+    "contact": "Contact"
+  },
+  "whatsapp": {
+    "float": "Discuter sur WhatsApp",
+    "bubble": "Une question ? Écrivez-nous",
+    "defaultMessage": "Bonjour CoolTrade Sénégal, je suis un professionnel et je souhaite un renseignement."
+  },
+  "footer": {
+    "tagline": "Import-distribution de gaz réfrigérants, pièces détachées et outillage professionnel pour les métiers du froid et de la climatisation à Dakar.",
+    "navTitle": "Navigation",
+    "catalogTitle": "Catalogue",
+    "contactTitle": "Contact",
+    "hoursTitle": "Horaires",
+    "proCta": "Ouvrir un compte professionnel",
+    "rights": "Tous droits réservés.",
+    "legal": "Mentions légales",
+    "legalNote": "Société en cours d'immatriculation.",
+    "madeFor": "Site conçu pour les professionnels du froid au Sénégal."
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Dakar · Distribution B2B",
+      "title": "Le partenaire de proximité du frigoriste sénégalais",
+      "subtitle": "Gaz réfrigérants, pièces détachées et outillage professionnel — en stock à Dakar, livrés en 24h. Conseils techniques par des gens du métier, tarifs négociés pour les pros.",
+      "ctaPrimary": "Discuter sur WhatsApp",
+      "ctaSecondary": "Demander un devis",
+      "stat1": "24h",
+      "stat1Label": "Livraison dans Dakar",
+      "stat2": "R32",
+      "stat2Label": "Transition accompagnée",
+      "stat3": "30 j",
+      "stat3Label": "Crédit fournisseur pro"
+    },
+    "values": {
+      "eyebrow": "Nos atouts",
+      "title": "Pourquoi les pros travaillent avec nous",
+      "subtitle": "Un fournisseur qui parle votre langage technique et tient ses délais.",
+      "items": {
+        "delivery": {
+          "title": "Livraison 24h à Dakar",
+          "desc": "Stock disponible et livraison le lendemain dans Dakar et la banlieue. Vous ne restez jamais bloqué sur un chantier."
+        },
+        "advice": {
+          "title": "Conseil technique R410A → R32",
+          "desc": "On vous aide à choisir le bon fluide et à préparer la transition vers le R32, en toute sécurité et conformité."
+        },
+        "credit": {
+          "title": "Crédit fournisseur 30 jours",
+          "desc": "Pour les professionnels réguliers : un compte avec paiement à 30 jours pour lisser votre trésorerie."
+        },
+        "storage": {
+          "title": "Stockage gaz sécurisé",
+          "desc": "Nos fluides sont stockés dans des conditions sûres et conformes. Des bouteilles fiables, correctement étiquetées."
+        }
+      }
+    },
+    "categories": {
+      "title": "Notre catalogue",
+      "subtitle": "Tout ce qu'il faut pour installer, réparer et entretenir — au même endroit.",
+      "cta": "Explorer le catalogue complet"
+    },
+    "segments": {
+      "eyebrow": "Ils nous font confiance",
+      "title": "Ils s'approvisionnent chez nous",
+      "subtitle": "Des frigoristes indépendants aux grands comptes, nous fournissons toute la filière du froid.",
+      "items": {
+        "tech": "Frigoristes indépendants",
+        "hvac": "Entreprises de climatisation",
+        "hotels": "Hôtels & résidences",
+        "supermarkets": "Supermarchés & GMS",
+        "resellers": "Revendeurs & quincailleries"
+      }
+    },
+    "cta": {
+      "title": "Besoin d'un fluide ou d'une pièce aujourd'hui ?",
+      "subtitle": "Envoyez-nous votre référence sur WhatsApp, on vous confirme la disponibilité et le prix tout de suite.",
+      "primary": "Contacter sur WhatsApp",
+      "secondary": "Voir l'Espace Pro"
+    }
+  },
+  "catalog": {
+    "eyebrow": "Catalogue",
+    "title": "Gaz, pièces & outillage pour les métiers du froid",
+    "subtitle": "Sélectionnez une catégorie. Les prix sont négociés selon les volumes — contactez-nous pour un devis adapté à votre activité.",
+    "priceNote": "Tarifs professionnels négociés selon les volumes. Pas de prix public — demandez votre devis.",
+    "empty": "Aucun produit dans cette catégorie pour le moment.",
+    "productsCount_one": "{{count}} référence",
+    "productsCount_other": "{{count}} références",
+    "quoteCta": "Demander un devis pour cette catégorie",
+    "categories": {
+      "gaz": {
+        "name": "Gaz réfrigérants",
+        "short": "R410A, R32, R134a, R22 résiduel — bouteilles de 1 kg à 13,6 kg.",
+        "desc": "Fluides frigorigènes en bouteilles d'origine, stockés dans des conditions sûres et conformes. Formats du dépannage à la grande installation."
+      },
+      "pieces": {
+        "name": "Pièces détachées",
+        "short": "Compresseurs, condenseurs, filtres déshydrateurs, détendeurs, ventilateurs.",
+        "desc": "Les pièces d'usure et composants essentiels pour réparer et remettre en service climatiseurs, chambres froides et vitrines réfrigérées."
+      },
+      "outillage": {
+        "name": "Outillage professionnel",
+        "short": "Manifolds, pompes à vide, détecteurs de fuite, stations de récupération, balances.",
+        "desc": "L'équipement du frigoriste, sélectionné pour durer sur le terrain. Marques fiables, service après-vente assuré."
+      },
+      "consommables": {
+        "name": "Consommables & installation",
+        "short": "Baguettes de brasure, flux, supports de fixation, kits d'installation.",
+        "desc": "Tout le consommable qui part vite sur les chantiers : brasure, flux, fixations et kits de pose complets."
+      }
+    }
+  },
+  "about": {
+    "eyebrow": "À propos",
+    "title": "Un fournisseur du froid pensé par et pour les gens du métier",
+    "lead": "CoolTrade Sénégal est une entreprise d'import-distribution basée à Dakar, dédiée aux professionnels du froid et de la climatisation. Notre métier : que vous ne soyez jamais à court du fluide ou de la pièce dont votre chantier a besoin.",
+    "mission": {
+      "title": "Notre mission",
+      "desc": "Rendre l'approvisionnement en gaz réfrigérants, pièces et outillage simple, rapide et fiable pour les frigoristes sénégalais — avec des conseils techniques honnêtes et des délais tenus."
+    },
+    "vision": {
+      "title": "Notre vision",
+      "desc": "Devenir le partenaire de référence de la filière froid au Sénégal, en accompagnant la transition vers des fluides plus respectueux de l'environnement comme le R32."
+    },
+    "founder": {
+      "title": "Le mot du fondateur",
+      "quote": "J'ai lancé CoolTrade parce que trop de techniciens perdent des journées entières à chercher une bouteille ou une pièce. Notre promesse est simple : du stock, des conseils de professionnel à professionnel, et des délais que l'on tient. Votre réussite sur le terrain, c'est la nôtre.",
+      "name": "Abdoul Lahad Niang",
+      "role": "Fondateur, CoolTrade Sénégal"
+    },
+    "r32": {
+      "eyebrow": "Comprendre la transition",
+      "title": "Pourquoi le R32 compte",
+      "p1": "Le secteur du froid change. Dans le cadre de l'Amendement de Kigali, les fluides à fort impact climatique (comme le R410A) sont progressivement remplacés par des alternatives plus propres. Le R32 est aujourd'hui la référence : même famille d'usage, empreinte carbone bien plus faible.",
+      "p2": "Concrètement, pour vous, cela veut dire des installations plus efficaces et pérennes — mais aussi de nouvelles règles de manipulation. Nous vous accompagnons dans ce virage : choix du fluide, sécurité, et bons réflexes sur le terrain.",
+      "cta": "Parler de la transition R32"
+    },
+    "diff": {
+      "title": "Ce qui nous différencie",
+      "items": {
+        "stock": {
+          "title": "Le stock, vraiment disponible",
+          "desc": "On ne vend pas ce qu'on n'a pas. Disponibilité confirmée avant que vous ne vous déplaciez."
+        },
+        "proximity": {
+          "title": "La proximité",
+          "desc": "Un interlocuteur qui connaît votre métier et répond vite, sur WhatsApp comme au dépôt."
+        },
+        "compliance": {
+          "title": "La conformité",
+          "desc": "Fluides d'origine, stockage sécurisé, accompagnement sur les nouvelles réglementations."
+        },
+        "terms": {
+          "title": "Des conditions pros",
+          "desc": "Tarifs dégressifs et crédit fournisseur pour les comptes réguliers."
+        }
+      }
+    }
+  },
+  "services": {
+    "eyebrow": "Services",
+    "title": "Bien plus qu'un fournisseur de bouteilles",
+    "subtitle": "Un accompagnement complet pour sécuriser vos installations et développer votre activité.",
+    "items": {
+      "consulting": {
+        "title": "Conseil technique & conformité",
+        "desc": "Choix du fluide adapté à chaque installation, aide à la mise en conformité et à la transition vers le R32. On répond aux vraies questions du terrain."
+      },
+      "training": {
+        "title": "Formations manipulation sûre",
+        "desc": "Sessions courtes sur la manipulation sécurisée des fluides frigorigènes, la récupération et les bonnes pratiques. Pour vous et vos équipes."
+      },
+      "aftersales": {
+        "title": "Support pièces & après-vente",
+        "desc": "Identification de la bonne pièce, disponibilité rapide et suivi. On vous aide à trouver la référence exacte, même avec une simple photo."
+      },
+      "credit": {
+        "title": "Crédit fournisseur pro",
+        "desc": "Pour les professionnels réguliers, un compte avec paiement à 30 jours pour financer vos chantiers sans bloquer votre trésorerie."
+      }
+    },
+    "creditProgram": {
+      "eyebrow": "Programme de crédit",
+      "title": "Crédit fournisseur 30 jours",
+      "desc": "Réservé aux professionnels réguliers, notre programme de crédit vous permet de vous approvisionner et de régler à 30 jours. Éligibilité simple, étudiée au cas par cas.",
+      "eligibilityTitle": "Conditions d'éligibilité",
+      "eligibility": [
+        "Être un professionnel du froid ou de la climatisation en activité",
+        "Justifier d'un volume d'achats régulier",
+        "Fournir vos informations d'entreprise (RCCM / NINEA si disponibles)"
+      ],
+      "cta": "Faire une demande de compte pro"
+    },
+    "cta": {
+      "title": "Discutons de vos besoins",
+      "subtitle": "Un projet, une installation, une question technique ? Écrivez-nous.",
+      "primary": "Contacter sur WhatsApp"
+    }
+  },
+  "pro": {
+    "eyebrow": "Espace Pro",
+    "title": "Des conditions pensées pour les professionnels",
+    "subtitle": "Tarifs dégressifs, crédit fournisseur et priorité sur le stock. Ouvrez votre compte pro en quelques minutes.",
+    "benefits": {
+      "title": "Les avantages du compte pro",
+      "items": {
+        "pricing": {
+          "title": "Tarifs dégressifs",
+          "desc": "Des prix qui baissent avec vos volumes, négociés selon votre activité."
+        },
+        "credit": {
+          "title": "Paiement à 30 jours",
+          "desc": "Un crédit fournisseur pour lisser votre trésorerie sur les gros chantiers."
+        },
+        "priority": {
+          "title": "Priorité stock & livraison",
+          "desc": "Vos commandes traitées en priorité, livraison rapide dans Dakar."
+        },
+        "advisor": {
+          "title": "Un interlocuteur dédié",
+          "desc": "Un contact direct qui connaît votre compte et vos habitudes."
+        }
+      }
+    },
+    "form": {
+      "title": "Demande de compte professionnel",
+      "subtitle": "5 champs, 2 minutes. Nous revenons vers vous rapidement pour finaliser votre compte.",
+      "whatsappAlt": "Vous préférez WhatsApp ? Envoyez-nous directement votre demande.",
+      "whatsappCta": "Faire la demande sur WhatsApp",
+      "whatsappMessage": "Bonjour CoolTrade, je souhaite ouvrir un compte professionnel."
+    }
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Parlons de votre approvisionnement",
+    "subtitle": "Une référence à vérifier, un devis, une livraison urgente ? Le plus rapide reste WhatsApp — mais choisissez le canal qui vous convient.",
+    "infoTitle": "Nos coordonnées",
+    "depot": "Dépôt",
+    "phone": "Téléphone",
+    "whatsapp": "WhatsApp Business",
+    "email": "E-mail",
+    "hours": "Horaires d'ouverture",
+    "mapTitle": "Nous trouver",
+    "mapPlaceholder": "Adresse exacte du dépôt à confirmer — appelez-nous pour l'itinéraire.",
+    "formTitle": "Envoyez-nous un message",
+    "whatsappMessage": "Bonjour CoolTrade Sénégal, j'ai une demande."
+  },
+  "legal": {
+    "eyebrow": "Informations légales",
+    "title": "Mentions légales",
+    "updated": "Dernière mise à jour",
+    "intro": "Les informations ci-dessous seront complétées à mesure de l'immatriculation de la société.",
+    "sections": {
+      "editor": {
+        "title": "Éditeur du site",
+        "body": "Ce site est édité par CoolTrade Sénégal (dénomination provisoire, en cours d'immatriculation auprès de l'APIX). Fondateur : Abdoul Lahad Niang. Siège : Dakar, Sénégal."
+      },
+      "registration": {
+        "title": "Immatriculation",
+        "body": "NINEA et RCCM : en cours d'attribution. Ces informations seront publiées ici dès leur obtention."
+      },
+      "hosting": {
+        "title": "Hébergement",
+        "body": "Site hébergé sur une infrastructure statique (Cloudflare Pages). Les coordonnées de l'hébergeur seront précisées ici."
+      },
+      "data": {
+        "title": "Données personnelles",
+        "body": "Les informations transmises via les formulaires de contact et de demande de compte pro sont utilisées uniquement pour traiter votre demande et ne sont jamais revendues. Pour toute question relative à vos données, contactez-nous."
+      },
+      "ip": {
+        "title": "Propriété intellectuelle",
+        "body": "L'ensemble des contenus de ce site (textes, visuels, logo) est la propriété de CoolTrade Sénégal, sauf mention contraire."
+      }
+    }
+  },
+  "forms": {
+    "name": "Nom complet",
+    "namePlaceholder": "Ex. Amadou Diallo",
+    "company": "Entreprise / Atelier",
+    "companyPlaceholder": "Nom de votre entreprise (optionnel)",
+    "phone": "Téléphone",
+    "phonePlaceholder": "77 000 00 00",
+    "whatsapp": "WhatsApp",
+    "whatsappPlaceholder": "77 000 00 00 (si différent)",
+    "email": "E-mail",
+    "emailPlaceholder": "vous@exemple.com",
+    "regNumber": "RCCM / NINEA",
+    "regNumberPlaceholder": "Si disponible (optionnel)",
+    "volume": "Volume d'achats mensuel estimé",
+    "volumePlaceholder": "Sélectionnez une fourchette",
+    "volumeOptions": {
+      "small": "Moins de 200 000 FCFA",
+      "medium": "200 000 – 1 000 000 FCFA",
+      "large": "1 000 000 – 5 000 000 FCFA",
+      "xlarge": "Plus de 5 000 000 FCFA"
+    },
+    "subject": "Sujet",
+    "subjectPlaceholder": "Objet de votre demande",
+    "message": "Message",
+    "messagePlaceholder": "Décrivez votre besoin : références, quantités, délais…",
+    "segment": "Vous êtes",
+    "segmentOptions": {
+      "tech": "Frigoriste indépendant",
+      "hvac": "Entreprise de climatisation",
+      "hotel": "Hôtel / résidence",
+      "supermarket": "Supermarché / GMS",
+      "reseller": "Revendeur / quincaillerie",
+      "other": "Autre"
+    },
+    "submit": "Envoyer la demande",
+    "submitting": "Envoi en cours…",
+    "required": "Champ obligatoire",
+    "successTitle": "Message envoyé",
+    "successBody": "Merci ! Nous revenons vers vous très vite. Pour une réponse immédiate, écrivez-nous sur WhatsApp.",
+    "errorTitle": "L'envoi a échoué",
+    "errorBody": "Un problème est survenu. Réessayez ou contactez-nous directement sur WhatsApp.",
+    "fallbackNotice": "Le formulaire n'est pas encore connecté. En attendant, envoyez votre demande directement :",
+    "sendWhatsapp": "Envoyer sur WhatsApp",
+    "invalidEmail": "Adresse e-mail invalide",
+    "invalidPhone": "Numéro de téléphone invalide"
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "subtitle": "La page que vous cherchez n'existe pas ou a été déplacée.",
+    "cta": "Retour à l'accueil"
+  }
+}

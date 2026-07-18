@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-steel-800 antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight text-steel-900;
+  }
+
+  ::selection {
+    @apply bg-frost-300/60 text-steel-950;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
+  }
+
+  .section {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold
+           transition-all duration-200 focus:outline-none focus-visible:ring-2
+           focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-primary {
+    @apply btn bg-sun-500 text-white shadow-sm hover:bg-sun-600
+           focus-visible:ring-sun-500 active:scale-[0.98];
+  }
+  .btn-secondary {
+    @apply btn bg-steel-800 text-white hover:bg-steel-900 focus-visible:ring-steel-700
+           active:scale-[0.98];
+  }
+  .btn-outline {
+    @apply btn border border-steel-300 bg-white text-steel-800 hover:border-frost-400
+           hover:bg-frost-50 focus-visible:ring-frost-400;
+  }
+  .btn-whatsapp {
+    @apply btn bg-[#25D366] text-white hover:bg-[#1ebe57] focus-visible:ring-[#25D366]
+           active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply btn text-steel-700 hover:bg-steel-100 focus-visible:ring-steel-300;
+  }
+
+  /* Cards */
+  .card {
+    @apply rounded-2xl border border-steel-100 bg-white shadow-card;
+  }
+
+  /* Eyebrow / kicker label */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em]
+           text-frost-600;
+  }
+
+  /* Form fields */
+  .field-label {
+    @apply mb-1.5 block text-sm font-medium text-steel-700;
+  }
+  .field-input {
+    @apply w-full rounded-lg border border-steel-200 bg-white px-3.5 py-2.5 text-sm text-steel-900
+           placeholder:text-steel-400 focus:border-frost-400 focus:outline-none
+           focus:ring-2 focus:ring-frost-200 transition-colors;
+  }
+}
