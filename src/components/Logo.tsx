@@ -1,33 +1,32 @@
 import { brand } from '@/config/brand'
 
 /**
- * Brand lockup — a refined cylinder mark + a two-tone serif wordmark
- * ("Cool" cobalt, "Trade" ink). Colours run through theme tokens so the mark
- * reads on light and dark. Uses the config brand name so a rename never touches
- * this component.
+ * Brand lockup — a refined cylinder mark (echoing the hero illustration's
+ * labelled bottles) + a two-tone serif wordmark ("Cool" cobalt, "Trade" ink).
+ * Colours run through theme tokens so it reads on light and dark.
  */
 export function Logo({ className = '' }: { className?: string }) {
   return (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
-      <svg width="36" height="36" viewBox="0 0 64 64" fill="none" aria-hidden="true" className="shrink-0">
-        {/* rounded tile */}
-        <rect width="64" height="64" rx="16" className="fill-ink" />
-        {/* refrigerant cylinder */}
-        <rect x="23" y="17" width="18" height="34" rx="9" fill="#2743E6" />
-        {/* valve */}
-        <rect x="28.5" y="10" width="7" height="9" rx="2.5" className="fill-paper" />
-        {/* level lines */}
-        <path d="M28 30h8M28 38h8" className="stroke-paper" strokeWidth="2.2" strokeLinecap="round" />
+      <svg width="38" height="38" viewBox="0 0 64 64" fill="none" aria-hidden="true" className="shrink-0">
+        <rect width="64" height="64" rx="17" className="fill-ink" />
+        {/* cylinder body */}
+        <rect x="23" y="16" width="18" height="35" rx="9" className="fill-paper" />
+        {/* blue label collar */}
+        <rect x="23" y="27" width="18" height="7" fill="#2743E6" />
+        {/* valve + handwheel */}
+        <rect x="28.5" y="9" width="7" height="8" rx="2.5" className="fill-paper" />
+        <circle cx="32" cy="8" r="3.2" className="fill-paper" />
         {/* cold spark */}
-        <circle cx="47" cy="20" r="2.4" fill="#2743E6" />
+        <path d="M48 20v6M45 23h6" stroke="#2743E6" strokeWidth="2" strokeLinecap="round" />
       </svg>
       <span className="flex flex-col leading-none">
-        <span className="font-serif text-[1.42rem] font-semibold tracking-[-0.02em]">
+        <span className="font-serif text-[1.44rem] font-semibold tracking-[-0.02em]">
           <span className="text-blue">Cool</span>
           <span className="text-ink">Trade</span>
         </span>
-        <span className="mt-[3px] font-mono text-[0.54rem] font-medium uppercase tracking-[0.3em] text-ink-faint">
-          {brand.address.country}
+        <span className="mt-[3px] font-mono text-[0.55rem] font-medium uppercase tracking-[0.24em] text-ink-faint">
+          {brand.address.city} • {brand.address.country}
         </span>
       </span>
     </span>
