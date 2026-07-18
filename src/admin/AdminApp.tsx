@@ -43,14 +43,14 @@ function AdminLogin({ onSuccess }: { onSuccess: () => void }) {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-steel-950 px-5">
+    <div className="flex min-h-screen items-center justify-center bg-ink px-5">
       <div className="w-full max-w-sm">
         <div className="mb-8 flex justify-center">
-          <Logo variant="light" />
+          <Logo />
         </div>
-        <form onSubmit={submit} className="rounded-2xl bg-white p-7 shadow-card-hover">
-          <h1 className="text-lg font-bold text-steel-900">Panneau d'administration</h1>
-          <p className="mt-1 text-sm text-steel-500">
+        <form onSubmit={submit} className="rounded-2xl bg-card p-7 shadow-2xl">
+          <h1 className="text-lg font-bold text-ink">Panneau d'administration</h1>
+          <p className="mt-1 text-sm text-ink-faint">
             Accès réservé. Entrez le mot de passe pour continuer.
           </p>
           <div className="mt-5">
@@ -70,15 +70,15 @@ function AdminLogin({ onSuccess }: { onSuccess: () => void }) {
               placeholder="••••••••"
             />
             {error && (
-              <p className="mt-1.5 text-xs text-sun-700">Mot de passe incorrect.</p>
+              <p className="mt-1.5 text-xs text-rust">Mot de passe incorrect.</p>
             )}
           </div>
-          <button type="submit" className="btn-primary mt-5 w-full">
+          <button type="submit" className="btn-blue mt-5 w-full">
             Se connecter
           </button>
           <Link
             to="/"
-            className="mt-3 block text-center text-xs text-steel-400 hover:text-steel-600"
+            className="mt-3 block text-center text-xs text-ink-faint hover:text-ink-soft"
           >
             ← Retour au site
           </Link>
@@ -107,13 +107,13 @@ function AdminShell({ onLogout }: { onLogout: () => void }) {
   ]
 
   return (
-    <div className="min-h-screen bg-steel-50">
+    <div className="min-h-screen bg-card-2">
       {/* Top bar */}
-      <header className="sticky top-0 z-30 border-b border-steel-200 bg-white">
+      <header className="sticky top-0 z-30 border-b border-line bg-card">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5">
           <div className="flex items-center gap-4">
             <Logo />
-            <span className="hidden rounded-full bg-steel-100 px-2.5 py-1 text-xs font-semibold text-steel-500 sm:inline">
+            <span className="hidden rounded-full bg-line px-2.5 py-1 text-xs font-semibold text-ink-faint sm:inline">
               Admin
             </span>
           </div>
@@ -135,8 +135,8 @@ function AdminShell({ onLogout }: { onLogout: () => void }) {
                 onClick={() => setView(item.id)}
                 className={`whitespace-nowrap border-b-2 px-4 py-3 text-sm font-semibold transition-colors ${
                   view === item.id
-                    ? 'border-frost-500 text-frost-700'
-                    : 'border-transparent text-steel-500 hover:text-steel-800'
+                    ? 'border-blue text-blue'
+                    : 'border-transparent text-ink-faint hover:text-ink'
                 }`}
               >
                 {item.label}

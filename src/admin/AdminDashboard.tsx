@@ -29,8 +29,8 @@ export function AdminDashboard({
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-steel-900">Tableau de bord</h1>
-      <p className="mt-1 text-sm text-steel-500">
+      <h1 className="text-2xl font-bold text-ink">Tableau de bord</h1>
+      <p className="mt-1 text-sm text-ink-faint">
         Vue d'ensemble du contenu et des demandes reçues.
       </p>
 
@@ -39,10 +39,10 @@ export function AdminDashboard({
           <button
             key={s.label}
             onClick={s.action}
-            className="rounded-2xl border border-steel-200 bg-white p-5 text-left transition-shadow hover:shadow-card"
+            className="rounded-2xl border border-line bg-card p-5 text-left transition-shadow hover:shadow-lg"
           >
-            <div className="font-display text-3xl font-bold text-steel-900">{s.value}</div>
-            <div className="mt-1 text-sm text-steel-500">{s.label}</div>
+            <div className="font-serif text-3xl font-bold text-ink">{s.value}</div>
+            <div className="mt-1 text-sm text-ink-faint">{s.label}</div>
           </button>
         ))}
       </div>
@@ -62,13 +62,13 @@ export function AdminDashboard({
         />
       </div>
 
-      <div className="mt-8 rounded-2xl border border-frost-200 bg-frost-50 p-5 text-sm text-steel-700">
-        <p className="font-semibold text-steel-900">💡 Comment ça marche</p>
+      <div className="mt-8 rounded-2xl border border-blue/30 bg-blue/10 p-5 text-sm text-ink-soft">
+        <p className="font-semibold text-ink">💡 Comment ça marche</p>
         <p className="mt-2 leading-relaxed">
           Les modifications du catalogue sont enregistrées dans ce navigateur. Pour les rendre
           permanentes sur le site en ligne, utilisez le bouton <strong>« Exporter le catalogue »</strong>{' '}
           dans l'onglet Catalogue, puis transmettez le fichier JSON à votre développeur (il remplace{' '}
-          <code className="rounded bg-white px-1 py-0.5 text-xs">src/data/catalog.ts</code>). C'est
+          <code className="rounded bg-card px-1 py-0.5 text-xs">src/data/catalog.ts</code>). C'est
           aussi le point de départ idéal pour brancher une vraie base de données plus tard.
         </p>
       </div>
@@ -88,10 +88,10 @@ function StatusRow({
   neutral?: boolean
 }) {
   const tone = ok
-    ? 'border-frost-200 bg-frost-50 text-steel-700'
+    ? 'border-blue/30 bg-blue/10 text-ink-soft'
     : neutral
-      ? 'border-steel-200 bg-white text-steel-600'
-      : 'border-sun-200 bg-sun-50 text-sun-800'
+      ? 'border-line bg-card text-ink-soft'
+      : 'border-rust/30 bg-rust/10 text-rust'
   return (
     <div className={`flex items-start gap-3 rounded-xl border p-4 text-sm ${tone}`}>
       <span className="mt-0.5">{ok ? '✅' : neutral ? 'ℹ️' : '⚠️'}</span>

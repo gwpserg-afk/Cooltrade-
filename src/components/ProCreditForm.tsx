@@ -105,21 +105,21 @@ export function ProCreditForm() {
       </div>
 
       {!web3formsConfigured() && (
-        <p className="text-xs text-steel-500">{t('forms.fallbackNotice')}</p>
+        <p className="text-xs text-ink-faint">{t('forms.fallbackNotice')}</p>
       )}
       {state === 'error' && (
         <FormFeedback state="error" whatsappMessage={t('pro.form.whatsappMessage')} />
       )}
 
       <div className="flex flex-col gap-3 sm:flex-row">
-        <button type="submit" className="btn-primary w-full sm:w-auto" disabled={submitting}>
+        <button type="submit" className="btn-blue w-full sm:w-auto" disabled={submitting}>
           {submitting ? t('forms.submitting') : t('forms.submit')}
         </button>
         <a
           href={waFallback()}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-whatsapp w-full sm:w-auto"
+          className="btn-wa w-full sm:w-auto"
         >
           <WhatsAppIcon className="h-4 w-4" />
           {t('pro.form.whatsappCta')}

@@ -6,7 +6,9 @@ import { useProducts } from '@/hooks/useProducts'
 import { SectionHeading } from '@/components/SectionHeading'
 import { ProductCategoryCard } from '@/components/ProductCategoryCard'
 import { TrustStrip } from '@/components/TrustStrip'
+import { Marquee } from '@/components/Marquee'
 import { Reveal } from '@/components/Reveal'
+import { FounderNote } from '@/components/FounderNote'
 import {
   WhatsAppIcon,
   ArrowRightIcon,
@@ -24,116 +26,89 @@ const valueIcons = {
 } as const
 
 export function HomePage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const products = useProducts()
-
   const valueKeys = ['delivery', 'advice', 'credit', 'storage'] as const
-  const stats = [
-    { value: t('home.hero.stat1'), label: t('home.hero.stat1Label') },
-    { value: t('home.hero.stat2'), label: t('home.hero.stat2Label') },
-    { value: t('home.hero.stat3'), label: t('home.hero.stat3Label') },
-  ]
+  const qm = i18n.language.startsWith('fr') ? ' ?' : '?'
 
   return (
     <>
       {/* ---------------- Hero ---------------- */}
-      <section className="relative overflow-hidden bg-steel-950 text-white">
-        <div className="absolute inset-0 bg-grid-steel opacity-60" />
-        <div className="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-frost-500/20 blur-3xl" />
-        <div className="absolute -bottom-32 -left-20 h-96 w-96 rounded-full bg-sun-500/10 blur-3xl" />
+      <section className="relative overflow-hidden border-b border-line">
+        {/* Cooling-coil blueprint — subtle, on-subject */}
+        <svg
+          className="pointer-events-none absolute right-[-6%] top-[2%] z-0 w-[min(60%,680px)] text-blue opacity-[0.10] max-[900px]:bottom-[-4%] max-[900px]:right-[-30%] max-[900px]:top-auto max-[900px]:w-[120%] max-[900px]:opacity-[0.06]"
+          viewBox="0 0 400 300"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={2.2}
+          aria-hidden="true"
+        >
+          <path
+            d="M20 40h300a30 30 0 0 1 0 60H60a30 30 0 0 0 0 60h300a30 30 0 0 1 0 60H40"
+            strokeLinecap="round"
+          />
+          <circle cx="20" cy="40" r="6" fill="currentColor" stroke="none" />
+          <circle cx="40" cy="220" r="6" fill="currentColor" stroke="none" />
+        </svg>
 
-        <div className="container-page relative grid gap-12 py-16 sm:py-20 lg:grid-cols-12 lg:items-center lg:py-28">
-          <div className="lg:col-span-7">
-            <Reveal>
-              <span className="eyebrow text-frost-300">{t('home.hero.eyebrow')}</span>
-            </Reveal>
-            <Reveal delay={80}>
-              <h1 className="mt-4 text-4xl font-bold leading-[1.08] text-white sm:text-5xl lg:text-6xl">
-                {t('home.hero.title')}
-              </h1>
-            </Reveal>
-            <Reveal delay={160}>
-              <p className="mt-5 max-w-xl text-base leading-relaxed text-steel-300 sm:text-lg">
-                {t('home.hero.subtitle')}
-              </p>
-            </Reveal>
-            <Reveal delay={240}>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <a
-                  href={whatsappLink(t('whatsapp.defaultMessage'))}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-whatsapp"
-                >
-                  <WhatsAppIcon className="h-5 w-5" />
-                  {t('home.hero.ctaPrimary')}
-                </a>
-                <Link to="/contact" className="btn-outline border-white/20 bg-white/5 text-white hover:border-white/40 hover:bg-white/10">
-                  {t('home.hero.ctaSecondary')}
-                </Link>
-              </div>
-            </Reveal>
-          </div>
-
-          {/* Stat cards */}
-          <div className="lg:col-span-5">
-            <Reveal delay={320} className="grid grid-cols-3 gap-3 sm:gap-4">
-              {stats.map((s) => (
-                <div
-                  key={s.label}
-                  className="rounded-2xl border border-white/10 bg-white/[0.04] p-4 text-center backdrop-blur sm:p-5"
-                >
-                  <div className="font-display text-2xl font-bold text-frost-300 sm:text-3xl">
-                    {s.value}
-                  </div>
-                  <div className="mt-1 text-xs leading-tight text-steel-400 sm:text-sm">
-                    {s.label}
-                  </div>
-                </div>
-              ))}
-            </Reveal>
-          </div>
+        <div className="container-page relative z-10 py-14 sm:py-20 lg:py-24">
+          <Reveal>
+            <div className="mb-6 flex items-center gap-3">
+              <span className="kicker-line" />
+              <span className="kicker">{t('home.hero.eyebrow')}</span>
+            </div>
+            <h1 className="max-w-[16ch] font-serif text-[clamp(2.75rem,6.4vw,5.4rem)] font-semibold leading-[0.98] tracking-tight">
+              {t('home.h.heroLead')} <span className="accent-i">{t('home.h.heroAccent')}</span>.
+            </h1>
+            <p className="mt-7 max-w-[46ch] text-lg leading-relaxed text-ink-soft sm:text-xl">
+              {t('home.hero.subtitle')}
+            </p>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <a
+                href={whatsappLink(t('whatsapp.defaultMessage'))}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-wa"
+              >
+                <WhatsAppIcon className="h-[18px] w-[18px]" />
+                {t('home.hero.ctaPrimary')}
+                <ArrowRightIcon className="h-[17px] w-[17px]" />
+              </a>
+              <Link to="/catalogue" className="btn-outline">
+                {t('common.viewCatalog')}
+              </Link>
+            </div>
+            <div className="mt-9 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[0.74rem] text-ink-soft">
+              <span className="flex items-center gap-2">
+                <span className="h-[7px] w-[7px] rounded-full bg-wa" />
+                {t('home.hero.metaStock')}
+              </span>
+              <span className="hidden h-4 w-px bg-line sm:block" />
+              <span>{t('home.hero.metaDelivery')}</span>
+              <span className="hidden h-4 w-px bg-line sm:block" />
+              <span>{t('home.hero.metaCredit')}</span>
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* ---------------- Value props ---------------- */}
-      <section className="section">
-        <div className="container-page">
-          <SectionHeading
-            eyebrow={t('home.values.eyebrow')}
-            title={t('home.values.title')}
-            subtitle={t('home.values.subtitle')}
-          />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {valueKeys.map((key, i) => {
-              const Icon = valueIcons[key]
-              return (
-                <Reveal key={key} delay={i * 80} className="card p-6">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-frost-50 text-frost-600">
-                    <Icon className="h-6 w-6" />
-                  </span>
-                  <h3 className="mt-4 text-base font-bold text-steel-900">
-                    {t(`home.values.items.${key}.title`)}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-steel-600">
-                    {t(`home.values.items.${key}.desc`)}
-                  </p>
-                </Reveal>
-              )
-            })}
-          </div>
-        </div>
-      </section>
+      <Marquee />
 
-      {/* ---------------- Catalog overview ---------------- */}
-      <section className="section bg-steel-50/60">
+      {/* ---------------- 01 Catalogue ---------------- */}
+      <section className="section" id="catalogue">
         <div className="container-page">
           <SectionHeading
-            eyebrow={t('catalog.eyebrow')}
-            title={t('home.categories.title')}
-            subtitle={t('home.categories.subtitle')}
+            num="01"
+            kicker={t('catalog.eyebrow')}
+            title={
+              <>
+                {t('home.h.catLead')} <span className="accent-i">{t('home.h.catAccent')}</span>.
+              </>
+            }
+            intro={t('home.categories.subtitle')}
           />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-5 sm:grid-cols-2">
             {CATEGORIES.map((cat) => (
               <ProductCategoryCard
                 key={cat.id}
@@ -142,8 +117,8 @@ export function HomePage() {
               />
             ))}
           </div>
-          <div className="mt-10 text-center">
-            <Link to="/catalogue" className="btn-secondary">
+          <div className="mt-10">
+            <Link to="/catalogue" className="btn-ink">
               {t('home.categories.cta')}
               <ArrowRightIcon className="h-4 w-4" />
             </Link>
@@ -151,45 +126,106 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* ---------------- Segments / trust ---------------- */}
+      {/* ---------------- 02 Value props (editorial list) ---------------- */}
+      <section className="section pt-0">
+        <div className="container-page">
+          <SectionHeading
+            num="02"
+            kicker={t('home.values.eyebrow')}
+            title={
+              <>
+                {t('home.h.valLead')} <span className="accent-i">{t('home.h.valAccent')}</span>.
+              </>
+            }
+          />
+          <div className="mt-11 border-t border-line">
+            {valueKeys.map((key, i) => {
+              const Icon = valueIcons[key]
+              return (
+                <Reveal
+                  key={key}
+                  className="grid grid-cols-[auto_1fr] items-center gap-x-7 gap-y-1 border-b border-line py-6 sm:grid-cols-[auto_1fr_auto] sm:gap-x-8"
+                >
+                  <span className="font-mono text-[0.78rem] text-blue">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <h3 className="font-serif text-2xl font-semibold tracking-tight">
+                      {t(`home.values.items.${key}.title`)}
+                    </h3>
+                    <p className="mt-1.5 max-w-[60ch] text-[0.98rem] text-ink-soft">
+                      {t(`home.values.items.${key}.desc`)}
+                    </p>
+                  </div>
+                  <Icon className="hidden h-8 w-8 text-ink-faint sm:block" strokeWidth={1.5} />
+                </Reveal>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- 03 Founder ---------------- */}
+      <FounderNote num="03" />
+
+      {/* ---------------- 04 Segments ---------------- */}
       <section className="section">
         <div className="container-page">
           <SectionHeading
-            eyebrow={t('home.segments.eyebrow')}
-            title={t('home.segments.title')}
-            subtitle={t('home.segments.subtitle')}
+            num="04"
+            kicker={t('home.segments.eyebrow')}
+            title={
+              <>
+                {t('home.h.segLead')} <span className="accent-i">{t('home.h.segAccent')}</span>.
+              </>
+            }
           />
-          <div className="mt-12">
+          <div className="mt-11">
             <TrustStrip />
           </div>
         </div>
       </section>
 
-      {/* ---------------- Final CTA ---------------- */}
-      <section className="section pt-0">
-        <div className="container-page">
-          <Reveal className="relative overflow-hidden rounded-3xl bg-steel-900 px-6 py-14 text-center sm:px-12 sm:py-16">
-            <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-frost-500/20 blur-3xl" />
-            <div className="absolute -bottom-20 -left-10 h-64 w-64 rounded-full bg-sun-500/10 blur-3xl" />
-            <div className="relative mx-auto max-w-2xl">
-              <h2 className="text-2xl font-bold text-white sm:text-3xl">
-                {t('home.cta.title')}
-              </h2>
-              <p className="mt-3 text-steel-300">{t('home.cta.subtitle')}</p>
-              <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
-                <a
-                  href={whatsappLink()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-whatsapp"
-                >
-                  <WhatsAppIcon className="h-5 w-5" />
-                  {t('home.cta.primary')}
-                </a>
-                <Link to="/espace-pro" className="btn-outline border-white/20 bg-transparent text-white hover:border-white/40 hover:bg-white/10">
-                  {t('home.cta.secondary')}
-                </Link>
-              </div>
+      {/* ---------------- Final CTA (always-dark block) ---------------- */}
+      <section style={{ background: '#17120B' }}>
+        <div className="container-page flex flex-col items-center py-16 text-center sm:py-24 lg:py-28">
+          <Reveal className="flex flex-col items-center">
+            <h2
+              className="max-w-[15ch] font-serif text-[clamp(2.2rem,5vw,4rem)] font-semibold leading-[1.05]"
+              style={{ color: '#F3EEE4' }}
+            >
+              {t('home.h.ctaLead')}{' '}
+              <em className="not-italic">
+                <span className="font-serif italic" style={{ color: '#8B99FF' }}>
+                  {t('home.h.ctaAccent')}
+                </span>
+              </em>
+              {qm}
+            </h2>
+            <p className="mt-4 max-w-[46ch] text-lg" style={{ color: 'rgba(243,238,228,0.64)' }}>
+              {t('home.cta.subtitle')}
+            </p>
+            <div className="mt-9 flex flex-wrap justify-center gap-3">
+              <a
+                href={whatsappLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-wa"
+              >
+                <WhatsAppIcon className="h-[18px] w-[18px]" />
+                {t('home.cta.primary')}
+              </a>
+              <Link
+                to="/espace-pro"
+                className="btn"
+                style={{
+                  background: 'transparent',
+                  color: '#F3EEE4',
+                  borderColor: 'rgba(243,238,228,0.28)',
+                }}
+              >
+                {t('home.cta.secondary')}
+              </Link>
             </div>
           </Reveal>
         </div>

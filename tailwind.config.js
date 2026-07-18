@@ -4,75 +4,56 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Refrigeration cool blues / teals — the core brand identity
-        frost: {
-          50: '#eefcfd',
-          100: '#d4f6f9',
-          200: '#aeecf2',
-          300: '#75dce8',
-          400: '#35c2d5',
-          500: '#19a5bb',
-          600: '#17849e',
-          700: '#1a6b81',
-          800: '#1f586a',
-          900: '#1e495a',
-          950: '#0e303d',
-        },
-        // Deep navy for the industrial / technical base
-        steel: {
-          50: '#f4f7fa',
-          100: '#e6edf3',
-          200: '#c9d8e5',
-          300: '#9cb7ce',
-          400: '#6890b2',
-          500: '#467298',
-          600: '#375a7e',
-          700: '#2e4a66',
-          800: '#2a3f56',
-          900: '#182739',
-          950: '#0d1826',
-        },
-        // Senegal sun — warm ochre/orange accent, reserved for CTAs
-        sun: {
-          50: '#fef8ec',
-          100: '#fbebc8',
-          200: '#f7d68d',
-          300: '#f3bb52',
-          400: '#f0a32c',
-          500: '#e9831a',
-          600: '#ce6113',
-          700: '#ab4414',
-          800: '#8b3616',
-          900: '#722d15',
-          950: '#411506',
-        },
+        // Theme-aware tokens — RGB triplets in CSS vars (index.css), wrapped so
+        // Tailwind opacity modifiers work and light/dark is a token swap.
+        paper: 'rgb(var(--paper) / <alpha-value>)',
+        'paper-2': 'rgb(var(--paper-2) / <alpha-value>)',
+        card: 'rgb(var(--card) / <alpha-value>)',
+        'card-2': 'rgb(var(--card-2) / <alpha-value>)',
+        ink: 'rgb(var(--ink) / <alpha-value>)',
+        'ink-soft': 'rgb(var(--ink-soft) / <alpha-value>)',
+        'ink-faint': 'rgb(var(--ink-faint) / <alpha-value>)',
+        line: 'rgb(var(--line) / <alpha-value>)',
+        'line-soft': 'rgb(var(--line-soft) / <alpha-value>)',
+        blue: 'rgb(var(--blue) / <alpha-value>)',
+        'blue-2': 'rgb(var(--blue-2) / <alpha-value>)',
+        'on-blue': 'rgb(var(--on-blue) / <alpha-value>)',
+        rust: 'rgb(var(--rust) / <alpha-value>)',
+        wa: 'rgb(var(--wa) / <alpha-value>)',
+        'wa-2': 'rgb(var(--wa-2) / <alpha-value>)',
+        // Refrigerant cylinder colour-codes (fixed, read on both themes)
+        r410: '#C67DA0',
+        r32: '#7E9CB6',
+        r134: '#5C9DD0',
+        r22: '#6FA982',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
-        display: ['"Barlow Semi Condensed"', 'Inter', 'system-ui', 'sans-serif'],
+        serif: ['Newsreader', 'Georgia', '"Times New Roman"', 'serif'],
+        sans: ['"IBM Plex Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
       },
-      boxShadow: {
-        card: '0 1px 2px rgba(13, 24, 38, 0.06), 0 8px 24px -12px rgba(13, 24, 38, 0.18)',
-        'card-hover': '0 4px 12px rgba(13, 24, 38, 0.10), 0 16px 40px -16px rgba(13, 24, 38, 0.28)',
-      },
-      backgroundImage: {
-        'grid-steel':
-          "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0z' fill='none'/%3E%3Cpath d='M0 .5H40M.5 0V40' stroke='%23ffffff' stroke-opacity='0.05'/%3E%3C/svg%3E\")",
+      maxWidth: {
+        page: '1140px',
       },
       keyframes: {
         'fade-up': {
-          '0%': { opacity: '0', transform: 'translateY(12px)' },
+          '0%': { opacity: '0', transform: 'translateY(16px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        'pulse-ring': {
-          '0%': { transform: 'scale(0.9)', opacity: '0.7' },
-          '70%': { transform: 'scale(1.4)', opacity: '0' },
-          '100%': { transform: 'scale(1.4)', opacity: '0' },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        ring: {
+          '0%': { transform: 'scale(1)', opacity: '0.45' },
+          '70%': { transform: 'scale(1.5)', opacity: '0' },
+          '100%': { opacity: '0' },
         },
       },
       animation: {
-        'fade-up': 'fade-up 0.5s ease-out both',
-        'pulse-ring': 'pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'fade-up': 'fade-up 0.6s ease-out both',
+        marquee: 'marquee 34s linear infinite',
+        ring: 'ring 2.8s cubic-bezier(0.4,0,0.6,1) infinite',
       },
     },
   },

@@ -97,16 +97,28 @@ même structure, l'enregistrer dans `resources` + `AVAILABLE_LANGUAGES`
 
 ---
 
-## 🚀 Déploiement — Cloudflare Pages
+## 🚀 Déploiement
 
-1. Pousser le dépôt sur GitHub
-2. Cloudflare Pages → *Create project* → connecter le dépôt
-3. Réglages de build :
-   - **Build command :** `npm run build`
-   - **Output directory :** `dist`
-4. Le fichier `public/_redirects` gère déjà le routage SPA (toutes les routes → `index.html`)
+Le routage SPA est déjà géré : `public/_redirects` (Cloudflare / Netlify) et
+`vercel.json` (Vercel) renvoient toutes les routes vers `index.html`.
 
-Fonctionne aussi sur Netlify, Vercel, ou tout hébergeur de statique.
+### Vercel (le plus rapide)
+1. Pousser le dépôt sur GitHub (déjà fait).
+2. [vercel.com](https://vercel.com) → **Add New → Project** → importer le dépôt GitHub.
+3. Vercel détecte Vite automatiquement (`vercel.json` fixe déjà build + sortie).
+4. **Deploy** → une URL publique en ~1 minute. Chaque push redéploie tout seul.
+
+### Cloudflare Pages
+1. Cloudflare Pages → *Create project* → connecter le dépôt.
+2. Build command : `npm run build` · Output : `dist`.
+
+Fonctionne aussi sur Netlify ou tout hébergeur de statique.
+
+### Thème & design
+Palette et polices sont centralisées : couleurs en variables CSS
+(`src/index.css`, tokens clair/sombre), typographies Newsreader / IBM Plex Sans /
+IBM Plex Mono (chargées dans `index.html`). Le thème clair/sombre est mémorisé et
+appliqué avant le premier rendu (pas de flash).
 
 ---
 

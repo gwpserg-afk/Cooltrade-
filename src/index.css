@@ -2,78 +2,133 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   Design tokens — beige / ink / cobalt editorial system.
+   Values are space-separated RGB triplets so Tailwind opacity
+   modifiers (bg-blue/10) work; light is default, dark is a swap.
+   ============================================================ */
+:root,
+:root[data-theme='light'] {
+  --paper: 241 236 226;
+  --paper-2: 232 224 209;
+  --card: 251 248 241;
+  --card-2: 245 240 230;
+  --ink: 24 20 16;
+  --ink-soft: 84 77 66;
+  --ink-faint: 139 128 114;
+  --line: 222 211 193;
+  --line-soft: 232 224 208;
+  --blue: 39 67 230;
+  --blue-2: 28 52 196;
+  --on-blue: 244 243 255;
+  --rust: 185 84 47;
+  --wa: 31 168 85;
+  --wa-2: 27 149 75;
+}
+
+:root[data-theme='dark'] {
+  --paper: 19 16 9;
+  --paper-2: 27 23 16;
+  --card: 28 24 17;
+  --card-2: 33 28 19;
+  --ink: 241 234 222;
+  --ink-soft: 180 169 149;
+  --ink-faint: 132 122 107;
+  --line: 44 38 25;
+  --line-soft: 36 31 21;
+  --blue: 126 143 255;
+  --blue-2: 147 160 255;
+  --on-blue: 11 14 31;
+  --rust: 217 118 78;
+  --wa: 31 168 85;
+  --wa-2: 38 182 97;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
-
   body {
-    @apply bg-white text-steel-800 antialiased;
-    font-feature-settings: 'cv11', 'ss01';
+    @apply bg-paper text-ink antialiased;
+    font-feature-settings: 'cv05', 'ss01';
   }
-
   h1, h2, h3, h4 {
-    @apply font-display tracking-tight text-steel-900;
+    @apply font-serif font-semibold tracking-tight text-ink;
+    text-wrap: balance;
   }
-
   ::selection {
-    @apply bg-frost-300/60 text-steel-950;
+    background: rgb(var(--blue) / 0.2);
+  }
+  :focus-visible {
+    outline: 2px solid rgb(var(--blue));
+    outline-offset: 3px;
+    border-radius: 4px;
   }
 }
 
 @layer components {
   .container-page {
-    @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-page px-5 sm:px-6 lg:px-11;
+  }
+  .section {
+    @apply py-16 sm:py-24 lg:py-28;
   }
 
-  .section {
-    @apply py-16 sm:py-20 lg:py-24;
+  .accent-i {
+    @apply font-serif italic font-medium text-blue;
+  }
+
+  .kicker {
+    @apply inline-flex items-center gap-3 font-mono text-[0.72rem] font-medium uppercase tracking-[0.16em] text-ink-faint;
+  }
+  .kicker-line {
+    @apply h-px w-8 bg-ink-faint/60;
+  }
+  .sec-num {
+    @apply font-mono text-sm font-medium tracking-wide text-blue;
   }
 
   /* Buttons */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold
-           transition-all duration-200 focus:outline-none focus-visible:ring-2
-           focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
+    @apply inline-flex items-center justify-center gap-2.5 rounded-full border-[1.5px] border-transparent px-6 py-3 text-[0.95rem] font-semibold
+           transition-[transform,background-color,border-color,color] duration-200
+           active:translate-y-px disabled:cursor-not-allowed disabled:opacity-60;
   }
-  .btn-primary {
-    @apply btn bg-sun-500 text-white shadow-sm hover:bg-sun-600
-           focus-visible:ring-sun-500 active:scale-[0.98];
+  .btn-wa {
+    @apply btn bg-wa text-white hover:bg-wa-2;
   }
-  .btn-secondary {
-    @apply btn bg-steel-800 text-white hover:bg-steel-900 focus-visible:ring-steel-700
-           active:scale-[0.98];
+  .btn-blue {
+    @apply btn bg-blue text-on-blue hover:bg-blue-2;
   }
   .btn-outline {
-    @apply btn border border-steel-300 bg-white text-steel-800 hover:border-frost-400
-           hover:bg-frost-50 focus-visible:ring-frost-400;
+    @apply btn border-line bg-transparent text-ink hover:border-ink;
   }
-  .btn-whatsapp {
-    @apply btn bg-[#25D366] text-white hover:bg-[#1ebe57] focus-visible:ring-[#25D366]
-           active:scale-[0.98];
+  .btn-ink {
+    @apply btn bg-ink text-paper;
   }
   .btn-ghost {
-    @apply btn text-steel-700 hover:bg-steel-100 focus-visible:ring-steel-300;
+    @apply btn bg-transparent text-ink-soft hover:bg-ink/5 hover:text-ink;
+  }
+
+  .link-blue {
+    @apply inline-flex items-center gap-1.5 font-semibold text-blue hover:underline;
+    text-underline-offset: 3px;
   }
 
   /* Cards */
-  .card {
-    @apply rounded-2xl border border-steel-100 bg-white shadow-card;
-  }
-
-  /* Eyebrow / kicker label */
-  .eyebrow {
-    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em]
-           text-frost-600;
+  .card-surface {
+    @apply rounded-2xl border border-line bg-card;
   }
 
   /* Form fields */
   .field-label {
-    @apply mb-1.5 block text-sm font-medium text-steel-700;
+    @apply mb-1.5 block text-sm font-medium text-ink-soft;
   }
   .field-input {
-    @apply w-full rounded-lg border border-steel-200 bg-white px-3.5 py-2.5 text-sm text-steel-900
-           placeholder:text-steel-400 focus:border-frost-400 focus:outline-none
-           focus:ring-2 focus:ring-frost-200 transition-colors;
+    @apply w-full rounded-xl border border-line bg-card px-3.5 py-2.5 text-sm text-ink
+           placeholder:text-ink-faint transition-colors focus:border-blue focus:outline-none;
+  }
+  .field-input:focus {
+    box-shadow: 0 0 0 3px rgb(var(--blue) / 0.18);
   }
 }

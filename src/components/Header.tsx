@@ -3,9 +3,51 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { nav } from '@/config/site'
 import { whatsappLink } from '@/config/brand'
+import { AVAILABLE_LANGUAGES } from '@/i18n'
+import { useTheme } from '@/hooks/useTheme'
 import { Logo } from './Logo'
-import { LanguageSwitcher } from './LanguageSwitcher'
-import { WhatsAppIcon, MenuIcon, CloseIcon, ArrowRightIcon } from './Icons'
+import { WhatsAppIcon, MenuIcon, CloseIcon } from './Icons'
+
+function LangToggle({ full = false }: { full?: boolean }) {
+  const { i18n } = useTranslation()
+  if (AVAILABLE_LANGUAGES.length < 2) return null
+  const cur = (i18n.language || 'fr').slice(0, 2)
+  return (
+    <div
+      className={`inline-flex overflow-hidden rounded-lg border ${full ? 'flex-1' : ''}`}
+      style={{ borderColor: 'rgb(var(--line))' }}
+      role="group"
+      aria-label="Langue"
+    >
+      {AVAILABLE_LANGUAGES.map((lng) => (
+        <button
+          key={lng}
+          onClick={() => i18n.changeLanguage(lng)}
+          aria-pressed={cur === lng}
+          className={`font-mono text-[0.66rem] font-medium uppercase tracking-wide transition-colors ${
+            full ? 'flex-1 py-2.5' : 'px-2.5 py-1.5'
+          } ${cur === lng ? 'bg-ink text-paper' : 'text-ink-faint hover:text-ink'}`}
+        >
+          {lng}
+        </button>
+      ))}
+    </div>
+  )
+}
+
+function ThemeToggle() {
+  const { theme, toggle } = useTheme()
+  return (
+    <button
+      onClick={toggle}
+      aria-label="Thème clair / sombre"
+      className="flex h-[38px] w-[38px] items-center justify-center rounded-lg border text-ink transition-colors hover:border-ink"
+      style={{ borderColor: 'rgb(var(--line))' }}
+    >
+      {theme === 'dark' ? '☀' : '☾'}
+    </button>
+  )
+}
 
 export function Header() {
   const { t } = useTranslation()
@@ -20,10 +62,8 @@ export function Header() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Close the mobile menu on route change
   useEffect(() => setOpen(false), [location.pathname])
 
-  // Lock body scroll while the mobile menu is open
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
     return () => {
@@ -32,107 +72,114 @@ export function Header() {
   }, [open])
 
   return (
-    <header
-      className={`sticky top-0 z-40 transition-colors duration-300 ${
-        scrolled || open
-          ? 'border-b border-steel-100 bg-white/95 backdrop-blur'
-          : 'border-b border-transparent bg-white/80 backdrop-blur'
-      }`}
-    >
-      <div className="container-page flex h-16 items-center justify-between gap-4 lg:h-20">
-        <Link to="/" aria-label={t('nav.home')}>
-          <Logo />
-        </Link>
-
-        {/* Desktop nav */}
-        <nav className="hidden items-center gap-1 lg:flex">
-          {nav.map((item) => (
-            <NavLink
-              key={item.path}
-              to={item.path}
-              end={item.path === '/'}
-              className={({ isActive }) =>
-                `rounded-lg px-3.5 py-2 text-sm font-medium transition-colors ${
-                  isActive
-                    ? 'text-frost-700'
-                    : 'text-steel-600 hover:text-steel-900'
-                }`
-              }
-            >
-              {t(`nav.${item.key}`)}
-            </NavLink>
-          ))}
-        </nav>
-
-        <div className="hidden items-center gap-2.5 lg:flex">
-          <LanguageSwitcher />
-          <a
-            href={whatsappLink()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-whatsapp"
-          >
-            <WhatsAppIcon className="h-4 w-4" />
-            {t('common.whatsapp')}
-          </a>
-          <Link to="/contact" className="btn-outline">
-            {t('common.quote')}
+    <>
+      <header
+        className="sticky top-0 z-40 border-b transition-colors duration-300"
+        style={{
+          background: 'rgb(var(--paper) / 0.86)',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
+          borderColor: scrolled ? 'rgb(var(--line))' : 'transparent',
+        }}
+      >
+        <div className="container-page flex h-[74px] items-center justify-between gap-5">
+          <Link to="/" aria-label={t('nav.home')}>
+            <Logo />
           </Link>
-        </div>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setOpen((v) => !v)}
-          className="btn-ghost -mr-2 p-2 lg:hidden"
-          aria-label={open ? t('common.closeMenu') : t('common.openMenu')}
-          aria-expanded={open}
-        >
-          {open ? <CloseIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
-        </button>
-      </div>
-
-      {/* Mobile menu */}
-      {open && (
-        <div className="lg:hidden">
-          <nav className="container-page flex flex-col gap-1 border-t border-steel-100 py-4">
+          <nav className="hidden items-center gap-0.5 lg:flex">
             {nav.map((item) => (
               <NavLink
                 key={item.path}
                 to={item.path}
                 end={item.path === '/'}
                 className={({ isActive }) =>
-                  `flex items-center justify-between rounded-lg px-3 py-3 text-base font-medium ${
-                    isActive
-                      ? 'bg-frost-50 text-frost-700'
-                      : 'text-steel-700 hover:bg-steel-50'
+                  `rounded-lg px-3.5 py-2 text-[0.93rem] font-medium transition-colors ${
+                    isActive ? 'text-blue' : 'text-ink-soft hover:text-ink'
                   }`
                 }
               >
                 {t(`nav.${item.key}`)}
-                <ArrowRightIcon className="h-4 w-4 opacity-40" />
               </NavLink>
             ))}
-            <div className="mt-3 flex items-center justify-between border-t border-steel-100 pt-4">
-              <span className="text-sm font-medium text-steel-500">{t('language.label')}</span>
-              <LanguageSwitcher />
-            </div>
-            <div className="mt-3 grid grid-cols-1 gap-2.5">
+          </nav>
+
+          <div className="hidden items-center gap-3 lg:flex">
+            <LangToggle />
+            <ThemeToggle />
+            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="btn-wa">
+              <WhatsAppIcon className="h-[17px] w-[17px]" />
+              {t('common.whatsapp')}
+            </a>
+          </div>
+
+          <button
+            onClick={() => setOpen(true)}
+            className="flex h-[38px] w-[38px] items-center justify-center rounded-lg border text-ink lg:hidden"
+            style={{ borderColor: 'rgb(var(--line))' }}
+            aria-label={t('common.openMenu')}
+          >
+            <MenuIcon className="h-[22px] w-[22px]" />
+          </button>
+        </div>
+      </header>
+
+      {/* Full-screen mobile menu — rendered outside the backdrop-filtered header
+          so position:fixed anchors to the viewport, not the header box. */}
+      {open && (
+        <div className="fixed inset-0 z-[100] flex flex-col overflow-y-auto bg-paper px-5 pb-8 pt-[18px] sm:px-6 lg:hidden">
+          <div className="flex h-14 items-center justify-between">
+            <Logo />
+            <button
+              onClick={() => setOpen(false)}
+              className="flex h-[38px] w-[38px] items-center justify-center rounded-lg border text-ink"
+              style={{ borderColor: 'rgb(var(--line))' }}
+              aria-label={t('common.closeMenu')}
+            >
+              <CloseIcon className="h-5 w-5" />
+            </button>
+          </div>
+
+          <nav className="mt-6 flex flex-col">
+            {nav.map((item) => (
+              <NavLink
+                key={item.path}
+                to={item.path}
+                end={item.path === '/'}
+                className={({ isActive }) =>
+                  `border-b py-3.5 font-serif text-3xl font-semibold tracking-tight ${
+                    isActive ? 'text-blue' : 'text-ink'
+                  }`
+                }
+                style={{ borderColor: 'rgb(var(--line))' }}
+              >
+                {t(`nav.${item.key}`)}
+              </NavLink>
+            ))}
+          </nav>
+
+          <div className="mt-auto flex flex-col gap-3 pt-7">
+            <div className="flex gap-2.5">
               <a
                 href={whatsappLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-whatsapp w-full"
+                className="btn-wa flex-1"
               >
-                <WhatsAppIcon className="h-5 w-5" />
+                <WhatsAppIcon className="h-[17px] w-[17px]" />
                 {t('common.whatsapp')}
               </a>
-              <Link to="/contact" className="btn-primary w-full">
-                {t('common.quote')}
+              <Link to="/contact" className="btn-outline flex-1">
+                {t('common.quoteShort')}
               </Link>
             </div>
-          </nav>
+            <div className="flex items-center gap-2.5">
+              <LangToggle full />
+              <ThemeToggle />
+            </div>
+          </div>
         </div>
       )}
-    </header>
+    </>
   )
 }

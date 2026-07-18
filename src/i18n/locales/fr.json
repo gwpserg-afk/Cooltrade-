@@ -34,6 +34,14 @@
     "fr": "Français",
     "en": "English"
   },
+  "marquee": {
+    "compressors": "Compresseurs",
+    "condensers": "Condenseurs",
+    "pumps": "Pompes à vide",
+    "detectors": "Détecteurs de fuite",
+    "brazing": "Brasure",
+    "kits": "Kits de pose"
+  },
   "footer": {
     "tagline": "Import-distribution de gaz réfrigérants, pièces détachées et outillage professionnel pour les métiers du froid et de la climatisation à Dakar.",
     "navTitle": "Navigation",
@@ -47,12 +55,27 @@
     "madeFor": "Site conçu pour les professionnels du froid au Sénégal."
   },
   "home": {
+    "h": {
+      "heroLead": "Le partenaire de proximité du",
+      "heroAccent": "frigoriste sénégalais",
+      "catLead": "Tout pour installer, réparer et",
+      "catAccent": "entretenir",
+      "valLead": "Un fournisseur qui parle métier — et qui",
+      "valAccent": "tient parole",
+      "segLead": "Du frigoriste indépendant au",
+      "segAccent": "grand compte",
+      "ctaLead": "Besoin d'un fluide ou d'une pièce",
+      "ctaAccent": "aujourd'hui"
+    },
     "hero": {
-      "eyebrow": "Dakar · Distribution B2B",
+      "eyebrow": "Import-distribution · Froid & Clim · Dakar",
       "title": "Le partenaire de proximité du frigoriste sénégalais",
-      "subtitle": "Gaz réfrigérants, pièces détachées et outillage professionnel — en stock à Dakar, livrés en 24h. Conseils techniques par des gens du métier, tarifs négociés pour les pros.",
+      "subtitle": "Gaz réfrigérants, pièces détachées et outillage professionnel — en stock à Dakar, livrés en 24h. Un seul numéro, des gens du métier.",
       "ctaPrimary": "Discuter sur WhatsApp",
       "ctaSecondary": "Demander un devis",
+      "metaStock": "Stock disponible aujourd'hui",
+      "metaDelivery": "Livraison Dakar · 24h",
+      "metaCredit": "Crédit pro · 30 j",
       "stat1": "24h",
       "stat1Label": "Livraison dans Dakar",
       "stat2": "R32",

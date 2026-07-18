@@ -34,6 +34,14 @@
     "fr": "Français",
     "en": "English"
   },
+  "marquee": {
+    "compressors": "Compressors",
+    "condensers": "Condensers",
+    "pumps": "Vacuum pumps",
+    "detectors": "Leak detectors",
+    "brazing": "Brazing",
+    "kits": "Install kits"
+  },
   "footer": {
     "tagline": "Import and distribution of refrigerant gases, spare parts and professional tools for the refrigeration and air-conditioning trades in Dakar.",
     "navTitle": "Navigation",
@@ -47,12 +55,27 @@
     "madeFor": "Built for refrigeration professionals in Senegal."
   },
   "home": {
+    "h": {
+      "heroLead": "The local partner of the",
+      "heroAccent": "Senegalese refrigeration technician",
+      "catLead": "Everything to install, repair and",
+      "catAccent": "maintain",
+      "valLead": "A supplier who speaks the trade — and",
+      "valAccent": "keeps his word",
+      "segLead": "From the independent technician to the",
+      "segAccent": "large account",
+      "ctaLead": "Need a refrigerant or a part",
+      "ctaAccent": "today"
+    },
     "hero": {
-      "eyebrow": "Dakar · B2B Distribution",
+      "eyebrow": "Import & distribution · Refrigeration & AC · Dakar",
       "title": "The Senegalese refrigeration technician's local partner",
-      "subtitle": "Refrigerant gases, spare parts and professional tools — in stock in Dakar, delivered within 24h. Technical advice from people who know the trade, negotiated pricing for professionals.",
+      "subtitle": "Refrigerant gases, spare parts and professional tools — in stock in Dakar, delivered within 24h. One number to call, people who know the trade.",
       "ctaPrimary": "Chat on WhatsApp",
       "ctaSecondary": "Request a quote",
+      "metaStock": "In stock today",
+      "metaDelivery": "Delivery in Dakar · 24h",
+      "metaCredit": "Trade credit · 30 days",
       "stat1": "24h",
       "stat1Label": "Delivery within Dakar",
       "stat2": "R32",

@@ -67,8 +67,8 @@ export function SubmissionsManager() {
     <div>
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-steel-900">Demandes reçues</h1>
-          <p className="mt-1 text-sm text-steel-500">
+          <h1 className="text-2xl font-bold text-ink">Demandes reçues</h1>
+          <p className="mt-1 text-sm text-ink-faint">
             Messages de contact et demandes de compte professionnel.
           </p>
         </div>
@@ -88,8 +88,8 @@ export function SubmissionsManager() {
             onClick={() => setFilter(f.id)}
             className={`rounded-full px-3.5 py-1.5 text-sm font-semibold transition-colors ${
               filter === f.id
-                ? 'bg-steel-900 text-white'
-                : 'bg-steel-100 text-steel-600 hover:bg-steel-200'
+                ? 'bg-ink text-white'
+                : 'bg-line text-ink-soft hover:bg-line'
             }`}
           >
             {f.label}
@@ -98,34 +98,34 @@ export function SubmissionsManager() {
       </div>
 
       {visible.length === 0 ? (
-        <div className="mt-8 rounded-2xl border border-dashed border-steel-300 bg-white p-10 text-center">
-          <p className="text-steel-500">Aucune demande pour le moment.</p>
-          <p className="mt-1 text-sm text-steel-400">
+        <div className="mt-8 rounded-2xl border border-dashed border-line bg-card p-10 text-center">
+          <p className="text-ink-faint">Aucune demande pour le moment.</p>
+          <p className="mt-1 text-sm text-ink-faint">
             Les demandes envoyées via les formulaires du site apparaîtront ici.
           </p>
         </div>
       ) : (
         <div className="mt-6 space-y-4">
           {visible.map((s) => (
-            <div key={s.id} className="rounded-2xl border border-steel-200 bg-white p-5">
+            <div key={s.id} className="rounded-2xl border border-line bg-card p-5">
               <div className="flex items-start justify-between gap-4">
                 <div className="flex items-center gap-2">
                   <span
                     className={`rounded-full px-2.5 py-1 text-xs font-semibold ${
                       s.type === 'pro-credit'
-                        ? 'bg-sun-100 text-sun-800'
-                        : 'bg-frost-100 text-frost-700'
+                        ? 'bg-rust/15 text-rust'
+                        : 'bg-blue/15 text-blue'
                     }`}
                   >
                     {TYPE_LABELS[s.type]}
                   </span>
-                  <span className="text-xs text-steel-400">
+                  <span className="text-xs text-ink-faint">
                     {new Date(s.createdAt).toLocaleString('fr-FR')}
                   </span>
                 </div>
                 <button
                   onClick={() => onDelete(s.id)}
-                  className="text-sm font-medium text-sun-700 hover:underline"
+                  className="text-sm font-medium text-rust hover:underline"
                 >
                   Suppr.
                 </button>
@@ -135,10 +135,10 @@ export function SubmissionsManager() {
                   .filter(([, v]) => v)
                   .map(([k, v]) => (
                     <div key={k} className={k === 'message' ? 'sm:col-span-2' : ''}>
-                      <dt className="text-xs font-semibold uppercase tracking-wide text-steel-400">
+                      <dt className="text-xs font-semibold uppercase tracking-wide text-ink-faint">
                         {FIELD_LABELS[k] ?? k}
                       </dt>
-                      <dd className="mt-0.5 text-sm text-steel-800">{v}</dd>
+                      <dd className="mt-0.5 text-sm text-ink">{v}</dd>
                     </div>
                   ))}
               </dl>

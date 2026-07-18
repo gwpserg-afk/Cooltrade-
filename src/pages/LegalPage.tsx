@@ -13,15 +13,15 @@ export function LegalPage() {
 
   return (
     <>
-      <PageHero eyebrow={t('legal.eyebrow')} title={t('legal.title')} />
+      <PageHero kicker={t('legal.eyebrow')} title={t('legal.title')} />
 
       <section className="section">
         <div className="container-page max-w-3xl">
           <Reveal>
-            <p className="text-sm text-steel-500">
+            <p className="font-mono text-sm text-ink-faint">
               {t('legal.updated')} : {today}
             </p>
-            <p className="mt-4 rounded-xl border border-sun-200 bg-sun-50 p-4 text-sm text-sun-800">
+            <p className="mt-4 rounded-xl border border-blue/25 bg-blue/10 p-4 text-sm text-ink-soft">
               {t('legal.intro')}
             </p>
           </Reveal>
@@ -29,12 +29,10 @@ export function LegalPage() {
           <div className="mt-10 space-y-8">
             {sectionKeys.map((key, i) => (
               <Reveal key={key} delay={i * 50}>
-                <h2 className="text-lg font-bold text-steel-900">
+                <h2 className="font-serif text-lg font-semibold tracking-tight">
                   {t(`legal.sections.${key}.title`)}
                 </h2>
-                <p className="mt-2 leading-relaxed text-steel-600">
-                  {t(`legal.sections.${key}.body`)}
-                </p>
+                <p className="mt-2 leading-relaxed text-ink-soft">{t(`legal.sections.${key}.body`)}</p>
               </Reveal>
             ))}
           </div>

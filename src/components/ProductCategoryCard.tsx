@@ -3,24 +3,10 @@ import { useTranslation } from 'react-i18next'
 import type { Category } from '@/data/catalog'
 import { ProductIcon, ArrowRightIcon } from './Icons'
 
-const accentMap = {
-  frost: {
-    ring: 'group-hover:border-frost-300',
-    iconBg: 'bg-frost-50 text-frost-600 group-hover:bg-frost-500 group-hover:text-white',
-    link: 'text-frost-600',
-  },
-  steel: {
-    ring: 'group-hover:border-steel-300',
-    iconBg: 'bg-steel-50 text-steel-600 group-hover:bg-steel-700 group-hover:text-white',
-    link: 'text-steel-600',
-  },
-  sun: {
-    ring: 'group-hover:border-sun-300',
-    iconBg: 'bg-sun-50 text-sun-600 group-hover:bg-sun-500 group-hover:text-white',
-    link: 'text-sun-600',
-  },
-} as const
-
+/**
+ * Catalog category card — warm bordered surface, serif title, cobalt "Voir"
+ * link, and (for gases) the refrigerant colour-code dots as a subtle signature.
+ */
 export function ProductCategoryCard({
   category,
   count,
@@ -29,33 +15,46 @@ export function ProductCategoryCard({
   count?: number
 }) {
   const { t } = useTranslation()
-  const a = accentMap[category.accent]
 
   return (
     <Link
       to={`/catalogue?cat=${category.id}`}
-      className={`card group flex flex-col p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover ${a.ring}`}
+      className="group card-surface flex flex-col p-7 transition-[transform,box-shadow,border-color] duration-200 hover:-translate-y-1 hover:shadow-[0_26px_50px_-30px_rgba(24,20,16,0.4)]"
     >
-      <div
-        className={`mb-5 flex h-14 w-14 items-center justify-center rounded-xl transition-colors duration-300 ${a.iconBg}`}
-      >
-        <ProductIcon name={category.icon} className="h-7 w-7" />
-      </div>
-      <h3 className="text-lg font-bold text-steel-900">
-        {t(`catalog.categories.${category.i18nKey}.name`)}
-      </h3>
-      <p className="mt-2 flex-1 text-sm leading-relaxed text-steel-600">
-        {t(`catalog.categories.${category.i18nKey}.short`)}
-      </p>
-      <span className={`mt-5 inline-flex items-center gap-1.5 text-sm font-semibold ${a.link}`}>
+      <div className="flex items-start justify-between">
+        <span className="text-blue">
+          <ProductIcon name={category.icon} className="h-11 w-11" strokeWidth={1.5} />
+        </span>
         {typeof count === 'number' && (
-          <span className="mr-1 rounded-full bg-steel-100 px-2 py-0.5 text-xs font-semibold text-steel-500">
-            {count}
+          <span className="font-mono text-[0.72rem] text-ink-faint">
+            {String(count).padStart(2, '0')} réf.
           </span>
         )}
-        {t('common.learnMore')}
-        <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-      </span>
+      </div>
+      <h3 className="mt-5 font-serif text-2xl font-semibold tracking-tight">
+        {t(`catalog.categories.${category.i18nKey}.name`)}
+      </h3>
+      <p className="mt-2.5 flex-1 text-[0.95rem] leading-relaxed text-ink-soft">
+        {t(`catalog.categories.${category.i18nKey}.short`)}
+      </p>
+
+      {category.id === 'gaz' && (
+        <div className="mt-4 flex gap-1.5">
+          {['#C67DA0', '#7E9CB6', '#5C9DD0', '#6FA982'].map((c) => (
+            <span key={c} className="h-2.5 w-2.5 rounded-[3px]" style={{ background: c }} />
+          ))}
+        </div>
+      )}
+
+      <div className="mt-5 flex items-center justify-between border-t border-line-soft pt-4">
+        <span className="font-mono text-[0.68rem] uppercase tracking-wide text-ink-faint">
+          {t('common.contactForPrice')}
+        </span>
+        <span className="link-blue">
+          {t('common.learnMore')}
+          <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+        </span>
+      </div>
     </Link>
   )
 }

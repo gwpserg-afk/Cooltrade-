@@ -5,7 +5,7 @@ import { WhatsAppIcon } from './Icons'
 
 /**
  * Persistent WhatsApp Business CTA — the #1 conversion channel for this market.
- * Bottom-right, standard pattern, with a one-time tooltip nudge on mobile.
+ * Bottom-right, standard pattern, with a one-time tooltip nudge.
  */
 export function WhatsAppFloatingButton() {
   const { t } = useTranslation()
@@ -25,7 +25,7 @@ export function WhatsAppFloatingButton() {
       {showBubble && (
         <button
           onClick={() => setShowBubble(false)}
-          className="mb-1 max-w-[190px] animate-fade-up rounded-2xl rounded-br-sm bg-white px-3.5 py-2.5 text-left text-xs font-medium text-steel-700 shadow-card-hover"
+          className="mb-1 max-w-[190px] animate-fade-up rounded-2xl rounded-br-sm border border-line bg-card px-3.5 py-2.5 text-left text-xs font-medium text-ink-soft shadow-lg"
         >
           {t('whatsapp.bubble')}
         </button>
@@ -35,9 +35,9 @@ export function WhatsAppFloatingButton() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t('whatsapp.float')}
-        className="relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-card-hover transition-transform hover:scale-105 active:scale-95"
+        className="relative flex h-14 w-14 items-center justify-center rounded-full bg-wa text-white shadow-xl transition-transform hover:scale-105 active:scale-95"
       >
-        <span className="absolute inset-0 rounded-full bg-[#25D366] animate-pulse-ring" />
+        <span className="absolute inset-0 rounded-full bg-wa motion-safe:animate-ring" />
         <WhatsAppIcon className="relative h-7 w-7" />
       </a>
     </div>
